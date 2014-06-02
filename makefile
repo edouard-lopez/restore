@@ -29,11 +29,6 @@ audio:
 network:
 	whois bmon
 
-	@printf "Install editors\n"
-	add-apt-repository webupd8team/atom/ubuntu # Atom Editor
-	add-apt-repository webupd8team/sublime-text-3/ubuntu # sublime text 3 editor
-	apt-get -q -y install vim vim-youcompleteme sublime-text atom
-
 editor-theme: editor
 	if [[ ! -d ${settingsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${settingsDir}/tomorrow-theme; fi
 	ln -nfs ${settingsDir}/tomorrow-theme/vim/colors/*.vim $$HOME/.vim/colors/
@@ -41,18 +36,7 @@ editor-theme: editor
 	ln -nfs ${settingsDir}/tomorrow-theme-konsole/*.colorscheme $$HOME/.kde/share/apps/konsole/
 	@printf "You need to \n"
 
-backup:
-	apt-get -y install backintime-gnome {g,}rsync
-	update-rc.d rsync defaults
-	backupSrc="/mnt/data"; \
 	backupDest="/media/ed8/51ee8de5-b1a9-4d57-9a94-24b9b1d0d10b/data-backup"; \
-	backupList=( "paperwork" "projects" "server" "settings" ); \
-	for backupDir in $${backupList[@]}; do \
-		(crontab -u ${user} -l ; \
-			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest} --log-file \"$HOME/rsync.log\" "; \
-		) | crontab -u ${user} - ; \
-	done
-
 security:
 	apt-get -y install gnupg2 kgpg ettercap-graphical
 
@@ -90,8 +74,13 @@ ruby:
 	source $HOME/.rvm/scripts/rvm
 	printf "Update ruby system"
 	gem update --system
-	gem install compass sass
+	gem install compass sass scss-lint bootstrap-sass
+
 editor:
+	@printf "Install editors\n"
+	add-apt-repository webupd8team/atom/ubuntu # Atom Editor
+	add-apt-repository webupd8team/sublime-text-3/ubuntu # sublime text 3 editor
+	apt-get -q -y install vim vim-youcompleteme sublime-text atom
 
 repo:
 	add-apt-repository ppa:conscioususer/polly-daily # polly Twitter client
@@ -99,3 +88,14 @@ repo:
 	add-apt-repository kubuntu-ppa/ppa/ubuntu # KDE backport
 	add-apt-repository peterlevi/ppa/ubuntu # variety wallpaper
 	add-apt-repository synapse-core/testing/ubuntu # synapse launcher
+
+backup:
+	apt-get -y install backintime-gnome {g,}rsync
+	update-rc.d rsync defaults
+	backupSrc="/mnt/data"; \
+	backupList=( "paperwork" "projects" "server" "settings" ); \
+	for backupDir in $${backupList[@]}; do \
+		(crontab -u ${user} -l ; \
+			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest} --log-file \"$HOME/rsync.log\" "; \
+		) | crontab -u ${user} - ; \
+	done

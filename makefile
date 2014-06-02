@@ -17,6 +17,7 @@ user := ed8
 
 settingsDir:=/mnt/data/settings
 projectsDir:=/mnt/data/projects
+backupDest:=/media/ed8/51ee8de5-b1a9-4d57-9a94-24b9b1d0d10b/data-backup
 
 default: editor
 
@@ -36,7 +37,6 @@ editor-theme: editor
 	ln -nfs ${settingsDir}/tomorrow-theme-konsole/*.colorscheme $$HOME/.kde/share/apps/konsole/
 	@printf "You need to \n"
 
-	backupDest="/media/ed8/51ee8de5-b1a9-4d57-9a94-24b9b1d0d10b/data-backup"; \
 security:
 	apt-get -y install gnupg2 kgpg ettercap-graphical
 
@@ -93,6 +93,7 @@ backup:
 	apt-get -y install backintime-gnome {g,}rsync
 	update-rc.d rsync defaults
 	backupSrc="/mnt/data"; \
+	backupDest="${backupDest}"; \
 	backupList=( "paperwork" "projects" "server" "settings" ); \
 	for backupDir in $${backupList[@]}; do \
 		(crontab -u ${user} -l ; \

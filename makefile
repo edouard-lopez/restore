@@ -50,7 +50,7 @@ backup:
 	backupList=( "paperwork" "projects" "server" "settings" ); \
 	for backupDir in $${backupList[@]}; do \
 		(crontab -u ${user} -l ; \
-			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest}"; \
+			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest} --log-file \"$HOME/rsync.log\" "; \
 		) | crontab -u ${user} - ; \
 	done
 

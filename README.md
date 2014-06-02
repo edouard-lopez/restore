@@ -5,9 +5,9 @@ Project to quickly restore my working environment.
 ## Usage
 
 ```bash
-makefile
+make
 # or
-makefile [task-name]
+make [task-name]
 ```
 
 ### License

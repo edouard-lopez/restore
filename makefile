@@ -21,7 +21,7 @@ projectsDir:=/mnt/data/projects
 default: editor
 
 utils:
-	apt-get install tree colordiff git{,k,-gui}
+	apt-get -y install tree colordiff git{,k,-gui}
 
 audio:
 	apt-get -y install {libav,opus,vorbis}-tools

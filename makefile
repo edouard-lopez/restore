@@ -23,6 +23,9 @@ default: editor
 utils:
 	apt-get install tree colordiff git{,k,-gui}
 
+audio:
+	apt-get -y install {libav,opus,vorbis}-tools
+
 network:
 	whois bmon
 

@@ -38,7 +38,7 @@ editor-theme: editor
 	@printf "You need to \n"
 
 security:
-	apt-get -y install gnupg2 kgpg ettercap-graphical
+	apt-get -y install gnupg2 kgpg gnome-encfs-manager ettercap-graphical
 
 server-web: apache2 mysql postgres
 

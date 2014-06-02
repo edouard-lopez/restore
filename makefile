@@ -43,7 +43,6 @@ security:
 server-web: apache2 mysql postgres
 
 mysql:
-	apt-get -y install mysql-{{server,client}-5.6,workbench}
 
 postgres:
 	apt-get -y install postgres
@@ -59,6 +58,7 @@ apache2:
 
 cfdict: apache2 nodejs ruby
 	cd $HOME/.marks/cfdict-client/
+	apt-get -y install mysql-{{server,client},workbench}
 
 nodejs:
 	add-apt-repository chris-lea/node.js/ubuntu # nodejs

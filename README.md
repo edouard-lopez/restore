@@ -10,3 +10,6 @@ makefile
 makefile [task-name]
 ```
 
+### License
+
+see [`MIT`](./LICENSE).

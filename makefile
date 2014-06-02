@@ -40,12 +40,9 @@ editor-theme: editor
 security:
 	apt-get -y install gnupg2 kgpg gnome-encfs-manager ettercap-graphical
 
-server-web: apache2 mysql postgres
 
-mysql:
-
-postgres:
-	apt-get -y install postgres
+# meta task
+server-web: apache2 mysql postgres nodejs ruby
 
 apache2:
 		apt-get -y install apache2 apache2-utils
@@ -56,9 +53,13 @@ apache2:
 		a2enmod alias autoindex deflate expires headers include php5 rewrite vhost_alias
 		service apache2 restart
 
+mysql:
 cfdict: apache2 nodejs ruby
 	cd $HOME/.marks/cfdict-client/
 	apt-get -y install mysql-{{server,client},workbench}
+
+postgres:
+	apt-get -y install postgres
 
 nodejs:
 	add-apt-repository chris-lea/node.js/ubuntu # nodejs

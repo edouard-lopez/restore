@@ -37,7 +37,7 @@ audio:
 	apt-get -y install {libav,opus,vorbis}-tools
 
 network:
-	whois bmon
+	whois bmon sshuttle
 
 editor-theme: editor
 	if [[ ! -d ${settingsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${settingsDir}/tomorrow-theme; fi

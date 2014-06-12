@@ -51,6 +51,9 @@ editor-theme: editor
 security:
 	apt-get -y install gnupg2 kgpg gnome-encfs-manager ettercap-graphical
 
+cfdict: apache2 nodejs ruby
+	apt-get install -y jshon
+	cd $HOME/.marks/cfdict-client/
 
 # meta task
 server-web: apache2 mysql postgres nodejs ruby
@@ -65,8 +68,6 @@ apache2:
 		service apache2 restart
 
 mysql:
-cfdict: apache2 nodejs ruby
-	cd $HOME/.marks/cfdict-client/
 	apt-get -y install mysql-{{server,client},workbench}
 
 postgres:

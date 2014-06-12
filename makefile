@@ -74,7 +74,7 @@ nodejs:
 	add-apt-repository chris-lea/node.js/ubuntu # nodejs
 	apt-get install nodejs
 	npm update -g npm
-	npm install -g yeoman bower grunt-cli gulp topojson
+	npm install -g yeoman bower grunt-cli gulp topojson generator-angular
 	npm cache clean; bower cache clean
 
 ruby:

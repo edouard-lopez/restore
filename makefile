@@ -75,7 +75,7 @@ ruby:
 	printf "Install RVM+Ruby\n"
 	curl -sSL https://get.rvm.io | bash -s stable --ruby
 	printf "Load RVM to SHELL\n"
-	source $HOME/.rvm/scripts/rvm
+	source "$HOME"/.rvm/scripts/rvm
 	printf "Update ruby system"
 	gem update --system
 	gem install compass sass scss-lint bootstrap-sass

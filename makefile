@@ -18,6 +18,7 @@ user := ed8
 settingsDir:=/mnt/data/settings
 projectsDir:=/mnt/data/projects
 backupDest:=/media/ed8/51ee8de5-b1a9-4d57-9a94-24b9b1d0d10b/data-backup
+distroUbuntu:=trusty
 
 default:	backup repo editor-theme editor \
 			ruby nodejs mysql postgres apache2  \

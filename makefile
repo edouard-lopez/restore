@@ -27,6 +27,11 @@ default:	backup repo editor-theme editor \
 utils:
 	apt-get -y install tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome}
 
+scanner:
+	grep "${distroUbuntu}-arakhne" ${additionRepos} \
+		&& echo "deb http://download.tuxfamily.org/arakhne/ubuntu ${distroUbuntu}-arakhne universe" >> ${additionRepos}
+	wget -q http://download.tuxfamily.org/arakhne/public.key -O- | apt-key add -
+	apt-get -y install okular djvulibre-bin tesseract-ocr{,-fra} libsane-epson-perfection-1670
 
 audio:
 	apt-get -y install {libav,opus,vorbis}-tools

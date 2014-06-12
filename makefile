@@ -25,7 +25,8 @@ default:	backup repo editor-theme editor \
 			cfdict
 
 utils:
-	apt-get -y install tree colordiff git{,k,-gui}
+	apt-get -y install tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome}
+
 
 audio:
 	apt-get -y install {libav,opus,vorbis}-tools

@@ -40,6 +40,9 @@ audio:
 
 network:
 	apt-get -y install whois bmon sshuttle python-software-properties
+	add-apt-repository ppa:keithw/mosh
+	apt-get update
+	apt-get install mosh
 
 editor-theme: editor
 	if [[ ! -d ${settingsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${settingsDir}/tomorrow-theme; fi

@@ -29,6 +29,9 @@ default:	backup repo editor-theme editor \
 utils:
 	apt-get -y install tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome}
 
+dataviz:
+	apt-get -y install gdal-bin
+
 scanner:
 	grep "${distroUbuntu}-arakhne" ${additionRepos} \
 		&& echo "deb http://download.tuxfamily.org/arakhne/ubuntu ${distroUbuntu}-arakhne universe" >> ${additionRepos}

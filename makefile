@@ -84,6 +84,8 @@ nodejs:
 	apt-get install nodejs
 	npm update -g npm
 	npm install -g yeoman bower grunt-cli gulp topojson generator-angular
+	# reactJS
+	npm install -g jshint-jsx react-tools
 	npm cache clean; bower cache clean
 
 ruby:

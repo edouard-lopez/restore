@@ -22,9 +22,9 @@ distroUbuntu:=trusty
 additionRepos:=/etc/apt/sources.list.d/additional-repositories.list
 
 default:	backup repo editor-theme editor \
-			ruby nodejs mysql postgres apache2  \
+			server-web ruby nodejs mysql postgres apache2  \
 			utils audio network security \
-			cfdict
+			cfdict datamining scanner
 
 utils:
 	apt-get -y install tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome}

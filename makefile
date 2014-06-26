@@ -32,6 +32,11 @@ utils:
 dataviz:
 	apt-get -y install gdal-bin
 
+datamining:
+	npm install -g topojson xml2json-command underscore-cli #json tools
+	apt-get -y install jq awk
+
+
 scanner:
 	grep "${distroUbuntu}-arakhne" ${additionRepos} \
 		&& echo "deb http://download.tuxfamily.org/arakhne/ubuntu ${distroUbuntu}-arakhne universe" >> ${additionRepos}
@@ -83,7 +88,8 @@ nodejs:
 	add-apt-repository chris-lea/node.js/ubuntu # nodejs
 	apt-get install nodejs
 	npm update -g npm
-	npm install -g yeoman bower grunt-cli gulp topojson generator-angular
+	npm install -g yeoman bower grunt-cli gulp
+	npm install -g generator-{angular,gulp-webapp,leaftlet}
 	# reactJS
 	npm install -g jshint-jsx react-tools
 	npm cache clean; bower cache clean

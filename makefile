@@ -24,8 +24,12 @@ additionRepos:=/etc/apt/sources.list.d/additional-repositories.list
 default:	backup repo core-utils editor-theme editor \
 			server-web php python ruby nodejs mysql postgres apache2  \
 			utils audio network security \
-			datamining scanner
+			datamining scanner \
+			upgrade
 		# cfdict
+
+upgrade:
+	apt-get update && apt-get upgrade
 
 utils:
 	apt-get -y install htop tmux tree colordiff git{,k,-gui} visual-regexp jshon verbipaste{,-gnome} dolphin polly

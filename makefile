@@ -29,7 +29,7 @@ default:	backup repo core-utils editor-theme editor \
 		# cfdict
 
 upgrade:
-	apt-get update && apt-get upgrade
+	apt-get update && apt-get -y upgrade
 
 utils:
 	apt-get -y install htop tmux tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome} dolphin polly

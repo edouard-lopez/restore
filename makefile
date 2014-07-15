@@ -107,8 +107,8 @@ ruby:
 
 editor:
 	@printf "Install editors\n"
-	add-apt-repository webupd8team/atom/ubuntu # Atom Editor
-	add-apt-repository webupd8team/sublime-text-3/ubuntu # sublime text 3 editor
+	add-apt-repository -y ppa:webupd8team/atom # Atom Editor
+	add-apt-repository -y ppa:webupd8team/sublime-text-3 # sublime text 3 editor
 	apt-get -q -y install vim vim-youcompleteme sublime-text atom tidy
 	apt-get update
 

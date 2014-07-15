@@ -121,7 +121,7 @@ repo:
 	apt-get update
 
 backup:
-	apt-get -y install backintime-gnome {g,}rsync
+	apt-get -y install {g,}rsync
 	update-rc.d rsync defaults
 	backupSrc="/mnt/data"; \
 	backupDest="${backupDest}"; \

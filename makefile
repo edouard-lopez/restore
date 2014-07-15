@@ -109,8 +109,8 @@ editor:
 	@printf "Install editors\n"
 	add-apt-repository -y ppa:webupd8team/atom # Atom Editor
 	add-apt-repository -y ppa:webupd8team/sublime-text-3 # sublime text 3 editor
-	apt-get -q -y install vim vim-youcompleteme sublime-text atom tidy
 	apt-get update
+	apt-get -q -y install vim vim-youcompleteme zim sublime-text atom tidy
 
 repo:
 	add-apt-repository -y ppa:conscioususer/polly-daily # polly Twitter client

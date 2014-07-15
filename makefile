@@ -27,7 +27,7 @@ default:	backup repo editor-theme editor \
 			cfdict datamining scanner
 
 utils:
-	apt-get -y install tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome}
+	apt-get -y install tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome} dolphin
 
 dataviz:
 	apt-get -y install gdal-bin

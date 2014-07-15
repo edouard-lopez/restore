@@ -60,6 +60,7 @@ editor-theme: editor
 	@printf "You need to \n"
 
 security:
+	apt-get update
 	apt-get -y install gnupg2 kgpg gnome-encfs-manager ettercap-graphical
 
 cfdict: apache2 nodejs ruby
@@ -86,6 +87,7 @@ postgres:
 
 nodejs:
 	add-apt-repository chris-lea/node.js/ubuntu # nodejs
+	apt-get update
 	apt-get install nodejs
 	npm update -g npm
 	npm install -g yeoman bower grunt-cli gulp
@@ -108,6 +110,7 @@ editor:
 	add-apt-repository webupd8team/atom/ubuntu # Atom Editor
 	add-apt-repository webupd8team/sublime-text-3/ubuntu # sublime text 3 editor
 	apt-get -q -y install vim vim-youcompleteme sublime-text atom tidy
+	apt-get update
 
 repo:
 	add-apt-repository ppa:conscioususer/polly-daily # polly Twitter client
@@ -115,6 +118,7 @@ repo:
 	add-apt-repository kubuntu-ppa/ppa/ubuntu # KDE backport
 	add-apt-repository peterlevi/ppa/ubuntu # variety wallpaper
 	add-apt-repository synapse-core/testing/ubuntu # synapse launcher
+	apt-get update
 
 backup:
 	apt-get -y install backintime-gnome {g,}rsync

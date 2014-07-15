@@ -32,7 +32,7 @@ upgrade:
 	apt-get update && apt-get upgrade
 
 utils:
-	apt-get -y install htop tmux tree colordiff git{,k,-gui} visual-regexp jshon verbipaste{,-gnome} dolphin polly
+	apt-get -y install htop tmux tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome} dolphin polly
 
 dataviz:
 	apt-get -y install gdal-bin

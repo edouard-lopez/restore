@@ -62,7 +62,7 @@ editor-theme: editor
 
 security:
 	apt-get update
-	apt-get -y install gnupg2 kgpg gnome-encfs-manager ettercap-graphical
+	apt-get -y install gnupg2 gnupg-agent kgpg gnome-encfs-manager ettercap-graphical
 
 cfdict: apache2 nodejs ruby
 	apt-get install -y jshon

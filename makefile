@@ -48,7 +48,7 @@ audio:
 
 network:
 	apt-get -y install whois bmon sshuttle python-software-properties
-	add-apt-repository ppa:keithw/mosh
+	add-apt-repository -y ppa:keithw/mosh
 	apt-get update
 	apt-get install mosh
 
@@ -86,7 +86,7 @@ postgres:
 	apt-get -y install postgres
 
 nodejs:
-	add-apt-repository chris-lea/node.js/ubuntu # nodejs
+	add-apt-repository -y chris-lea/node.js/ubuntu # nodejs
 	apt-get update
 	apt-get install nodejs
 	npm update -g npm
@@ -113,11 +113,11 @@ editor:
 	apt-get update
 
 repo:
-	add-apt-repository ppa:conscioususer/polly-daily # polly Twitter client
-	add-apt-repository ppa:gencfsm/ppa # encfs GUI
-	add-apt-repository kubuntu-ppa/ppa/ubuntu # KDE backport
-	add-apt-repository peterlevi/ppa/ubuntu # variety wallpaper
-	add-apt-repository synapse-core/testing/ubuntu # synapse launcher
+	add-apt-repository -y ppa:conscioususer/polly-daily # polly Twitter client
+	add-apt-repository -y ppa:gencfsm/ppa # encfs GUI
+	add-apt-repository -y kubuntu-ppa/ppa/ubuntu # KDE backport
+	add-apt-repository -y peterlevi/ppa/ubuntu # variety wallpaper
+	add-apt-repository -y synapse-core/testing/ubuntu # synapse launcher
 	apt-get update
 
 backup:

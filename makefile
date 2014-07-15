@@ -116,7 +116,7 @@ editor:
 core-utils:
 	add-apt-repository -y ppa:mozillateam/firefox-next
 	apt-get update
-	apt-get install -y git firefox yakuake
+	apt-get install -y git firefox zsh yakuake
 
 
 repo:

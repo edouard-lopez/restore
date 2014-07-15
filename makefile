@@ -22,7 +22,7 @@ distroUbuntu:=trusty
 additionRepos:=/etc/apt/sources.list.d/additional-repositories.list
 
 default:	backup repo core-utils editor-theme editor \
-			server-web python ruby nodejs mysql postgres apache2  \
+			server-web php python ruby nodejs mysql postgres apache2  \
 			utils audio network security \
 			datamining scanner
 		# cfdict
@@ -70,7 +70,7 @@ cfdict: apache2 nodejs ruby
 	cd $HOME/.marks/cfdict-client/
 
 # meta task
-server-web: mysql postgres apache2 python nodejs ruby
+server-web: php mysql postgres apache2 python nodejs ruby
 
 apache2:
 		apt-get -y install apache2 apache2-utils
@@ -86,6 +86,9 @@ mysql:
 
 postgres:
 	apt-get -y install postgres
+
+php:
+	apt-get install -y php5{,-{mysql,pgsql}}
 
 python: 
 	curl --output /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py

@@ -28,7 +28,7 @@ default:	backup repo core-utils editor-theme editor \
 		# cfdict
 
 utils:
-	apt-get -y install tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome} dolphin
+	apt-get -y install tmux tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome} dolphin
 
 dataviz:
 	apt-get -y install gdal-bin

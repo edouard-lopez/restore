@@ -24,7 +24,8 @@ additionRepos:=/etc/apt/sources.list.d/additional-repositories.list
 default:	backup repo core-utils editor-theme editor \
 			server-web ruby nodejs mysql postgres apache2  \
 			utils audio network security \
-			cfdict datamining scanner
+			datamining scanner
+		# cfdict
 
 utils:
 	apt-get -y install tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome} dolphin

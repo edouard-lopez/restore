@@ -21,7 +21,7 @@ backupDest:=/media/ed8/51ee8de5-b1a9-4d57-9a94-24b9b1d0d10b/data-backup
 distroUbuntu:=trusty
 additionRepos:=/etc/apt/sources.list.d/additional-repositories.list
 
-default:	backup repo editor-theme editor \
+default:	backup repo core-utils editor-theme editor \
 			server-web ruby nodejs mysql postgres apache2  \
 			utils audio network security \
 			cfdict datamining scanner
@@ -111,6 +111,12 @@ editor:
 	add-apt-repository -y ppa:webupd8team/sublime-text-3 # sublime text 3 editor
 	apt-get update
 	apt-get -q -y install vim vim-youcompleteme zim sublime-text atom tidy
+
+core-utils:
+	add-apt-repository -y ppa:mozillateam/firefox-next
+	apt-get update
+	apt-get install -y git firefox yakuake
+
 
 repo:
 	add-apt-repository -y ppa:conscioususer/polly-daily # polly Twitter client

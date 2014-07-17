@@ -87,7 +87,7 @@ mysql:
 	apt-get -y install mysql-{{server,client},workbench}
 
 postgres:
-	apt-get -y install postgresql
+	apt-get -y install postgresql pgadmin3
 
 php:
 	apt-get install -y php5{,-{mysql,pgsql}}

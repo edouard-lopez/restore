@@ -52,7 +52,7 @@ audio:
 	apt-get -y install {libav,opus,vorbis}-tools
 
 network:
-	apt-get -y install whois bmon sshuttle python-software-properties mosh
+	apt-get -y install whois bmon sshuttle python-software-properties mosh nmap
 
 editor-theme: editor
 	if [[ ! -d ${settingsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${settingsDir}/tomorrow-theme; fi

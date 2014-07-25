@@ -98,12 +98,12 @@ python:
 	pip install virtualenvwrapper
 
 nodejs:
-	add-apt-repository -y chris-lea/node.js/ubuntu # nodejs
+	add-apt-repository -y ppa:chris-lea/node.js
 	apt-get update
-	apt-get install nodejs
+	apt-get install -y nodejs
 	npm update -g npm
 	npm install -g yeoman bower grunt-cli gulp
-	npm install -g generator-{angular,gulp-webapp,leaftlet}
+	npm install -g generator-{angular,gulp-webapp,leaflet}
 	# reactJS
 	npm install -g jshint-jsx react-tools
 	npm cache clean; bower cache clean

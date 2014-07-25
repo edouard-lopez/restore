@@ -106,7 +106,8 @@ nodejs:
 	npm install -g generator-{angular,gulp-webapp,leaflet}
 	# reactJS
 	npm install -g jshint-jsx react-tools
-	npm cache clean; bower cache clean
+	npm cache clean
+	su - "$$USER" bower cache clean
 
 ruby:
 	printf "Install RVM+Ruby\n"

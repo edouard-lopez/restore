@@ -93,6 +93,7 @@ php:
 	apt-get install -y php5{,-{mysql,pgsql}}
 
 python: 
+	apt-get install -y ipython
 	curl --output /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
 	python /tmp/get-pip.py
 	pip install virtualenvwrapper

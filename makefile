@@ -32,7 +32,7 @@ upgrade:
 	apt-get update && apt-get -y upgrade
 
 graphic:
-	apt-get -y install {shutter,libgoo-canvas-perl} kipi-plugins{,-common}
+	apt-get -y install {shutter,libgoo-canvas-perl} kipi-plugins{,-common} agave
 
 utils:
 	apt-get -y install htop tmux tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome} dolphin polly

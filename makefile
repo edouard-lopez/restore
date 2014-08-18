@@ -35,7 +35,9 @@ graphic:
 	apt-get -y install {shutter,libgoo-canvas-perl} kipi-plugins{,-common} agave
 
 utils:
-	apt-get -y install htop tmux tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome} dolphin polly
+	add-apt-repository -y ppa:jerzy-kozera/zeal-ppa
+	apt-get update
+	apt-get -y install htop tmux tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome} dolphin polly zeal
 
 dataviz:
 	apt-get -y install gdal-bin

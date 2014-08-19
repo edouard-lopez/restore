@@ -91,8 +91,20 @@ apache2:
 mysql:
 	apt-get -y install mysql-{{server,client},workbench}
 
+# As normal user
+pgmodelerVersion:=0.8.0-alpha1
+pgmodeler:
+	echo "out-of  date version → update!"
+	cd ~/apps; \
+		[[ ! -f ${pgmodelerVersion}.tar.gz ]] && wget -O "${pgmodelerVersion}.tar.gz" https://github.com/pgmodeler/pgmodeler/archive/v${pgmodelerVersion}.tar.gz || true; \
+		tar xvzf ${pgmodelerVersion}.tar.gz -C ./ ; \
+		cd pgmodeler-${pgmodelerVersion} \
+		&& qmake -qt=5 QT+=designer pgmodeler.pro &&  make && make install
+
 postgres:
 	apt-get -y install postgresql pgadmin3
+	echo "pgmodeler requirements"
+	apt-get -y install libxml2{,-dev} libpq{5,-dev} qt{4,5}-qmake g++ libqt4-dev qt4-dev-tools libqt5serviceframework5 qtcreator{,-dev}  qtbase5-dev{,-tools} qttools5-dev
 
 php:
 	apt-get install -y php5{,-{mysql,pgsql}}

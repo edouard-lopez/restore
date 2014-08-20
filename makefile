@@ -26,11 +26,12 @@ SSL_KEY_NAME:=web
 SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 
 default:	backup repo core-utils editor-theme editor \
-			server-web php python ruby nodejs mysql postgres apache2  \
-			datamining scanner \
-			upgrade
-		# cfdict
+	server-web php python ruby nodejs mysql postgres apache2  \
 	utils audio network security ssl-key \
+	datamining scanner \
+	upgrade
+	# cfdict
+
 ssl-key: ${SSL_KEY_PATH}
 
 
@@ -123,7 +124,7 @@ postgres:
 php:
 	apt-get install -y php5{,-{mysql,pgsql}}
 
-python: 
+python:
 	apt-get install -y ipython
 	curl --output /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
 	python /tmp/get-pip.py

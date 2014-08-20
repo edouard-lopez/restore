@@ -21,12 +21,18 @@ backupDest:=/media/ed8/51ee8de5-b1a9-4d57-9a94-24b9b1d0d10b/data-backup
 distroUbuntu:=trusty
 additionRepos:=/etc/apt/sources.list.d/additional-repositories.list
 
+# for SSL certificates
+SSL_KEY_NAME:=web
+SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
+
 default:	backup repo core-utils editor-theme editor \
 			server-web php python ruby nodejs mysql postgres apache2  \
-			utils audio network security \
 			datamining scanner \
 			upgrade
 		# cfdict
+	utils audio network security ssl-key \
+ssl-key: ${SSL_KEY_PATH}
+
 
 upgrade:
 	apt-get update && apt-get -y upgrade
@@ -66,6 +72,14 @@ editor-theme: editor
 	ln -nfs ${settingsDir}/tomorrow-theme-konsole/*.colorscheme $$HOME/.kde/share/apps/konsole/
 	ln  -nfs $$HOME/dotfiles/.oh-my-zsh/themes/* $$HOME/.oh-my-zsh/themes/
 	@printf "You need to \n"
+
+#@alias: ssl-key
+# ${SSL_KEY_PATH}.%:
+${SSL_KEY_PATH}.%:
+	[[ ! -d /etc/ssl/$$USER ]] && mkdir -p "/etc/ssl/$$USER" || true
+	openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
+		-keyout $@.key \
+		-out 	$@.crt
 
 security:
 	apt-get update

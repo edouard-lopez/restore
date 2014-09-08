@@ -27,12 +27,12 @@ SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 
 default:	backup repo core-utils editor-theme editor \
 	server-web php python ruby nodejs mysql postgres apache2  \
-	utils audio network security ssl-key \
+	utils audio network security \
 	datamining scanner \
 	upgrade
 	# cfdict
 
-ssl-key: ${SSL_KEY_PATH}
+ssl-certificate: ${SSL_KEY_PATH}
 
 
 upgrade:
@@ -74,7 +74,7 @@ editor-theme: editor
 	ln  -nfs $$HOME/dotfiles/.oh-my-zsh/themes/* $$HOME/.oh-my-zsh/themes/
 	@printf "You need to \n"
 
-#@alias: ssl-key
+#@alias: ssl-certificate
 # ${SSL_KEY_PATH}.%:
 ${SSL_KEY_PATH}.%:
 	[[ ! -d /etc/ssl/$$USER ]] && mkdir -p "/etc/ssl/$$USER" || true
@@ -82,7 +82,7 @@ ${SSL_KEY_PATH}.%:
 		-keyout $@.key \
 		-out 	$@.crt
 
-security:
+security: ssl-certificate
 	apt-get update
 	apt-get -y install gnupg2 gnupg-agent kgpg gnome-encfs-manager ettercap-graphical
 	apt-get -y install keepass2 mono-complete

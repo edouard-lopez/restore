@@ -78,7 +78,7 @@ editor-theme: editor
 # ${SSL_KEY_PATH}.%:
 ${SSL_KEY_PATH}.%:
 	[[ ! -d /etc/ssl/$$USER ]] && mkdir -p "/etc/ssl/$$USER" || true
-	openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
+	openssl req -new -sha256 -x509 -nodes -days 365 -newkey rsa:4096 \
 		-keyout $@.key \
 		-out 	$@.crt
 

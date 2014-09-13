@@ -41,6 +41,9 @@ upgrade:
 graphic:
 	apt-get -y install {shutter,libgoo-canvas-perl} kipi-plugins{,-common} agave
 
+virtualization:
+	apt-get -y install virtualbox-nonfree virtualbox-guest-utils
+
 utils:
 	apt-get update
 	apt-get -y install htop tmux tree colordiff git{,k,-gui} dolphin
@@ -143,7 +146,13 @@ ruby:
 	gem update --system
 	gem install compass sass scss-lint bootstrap-sass
 
-editor:
+shellcheck:
+	@printf "Install Shellcheck linter\n"
+	apt-get -q -y install cabal-install ghc
+	cabal update
+	cabal install cabal-install
+
+editor: shellcheck
 	@printf "Install editors\n"
 	apt-get update
 	apt-get -q -y install vim vim-youcompleteme zim
@@ -166,14 +175,18 @@ repo:
 	add-apt-repository -y ppa:kubuntu-ppa/backports
 	apt-get update
 
-backup:
+update-rsync-exclude:
+	cp {.,"$$HOME"}/.exclude.rsync;
+
+backup: update-rsync-exclude
+	apt-get -y install backintime-gnome {g,}rsync
 	apt-get -y install {g,}rsync
 	update-rc.d rsync defaults
-	backupSrc="/mnt/data"; \
+	@backupSrc="/mnt/data"; \
 	backupDest="${backupDest}"; \
-	backupList=( "paperwork" "projects" "server" "settings" ); \
+	backupList=( "paperwork" "projects" "server" "settings" "Sync@Home" ); \
 	for backupDir in $${backupList[@]}; do \
 		(crontab -u ${user} -l ; \
-			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest} --log-file \"$HOME/rsync.log\" "; \
+			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest} --log-file \"$$HOME/rsync.log\" --exclude-from=\"$$HOME/.exclude.rsync\" "; \
 		) | crontab -u ${user} - ; \
 	done

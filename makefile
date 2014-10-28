@@ -161,8 +161,8 @@ editor:
 core-utils:
 	add-apt-repository -y ppa:mozillateam/firefox-next
 	apt-get update
-	apt-get install -y git firefox zsh yakuake
-
+	apt-get install -y git firefox zsh yakuake konsole curl
+	curl -L http://install.ohmyz.sh | sh
 
 repo:
 	add-apt-repository -y ppa:conscioususer/polly-daily # polly Twitter client

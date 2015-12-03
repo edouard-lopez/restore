@@ -1,0 +1,4 @@
+*/.git/
+*/watermark/original/
+*/watermark/output/
+*/node_modules/

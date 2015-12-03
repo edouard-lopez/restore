@@ -92,10 +92,15 @@ ${SSL_KEY_PATH}.%:
 		-keyout $@.key \
 		-out 	$@.crt
 
-security: ssl-certificate
-	apt-get update
-	apt-get -y install gnupg2 gnupg-agent kgpg
+keepass:
 	apt-get -y install keepass2 mono-complete
+	wget -c https://raw.github.com/pfn/keepasshttp/master/KeePassHttp.plgx \
+		&& cp KeePassHttp.plgx /usr/lib/keepass2/plugins/
+	cp "$$HOME"/.mozilla/firefox/*.default/extensions/keefox@chris.tomlinson/deps/KeePassRPC.plgx /usr/lib/keepass2/plugins/
+
+security: ssl-certificate keepass
+	apt-get update
+	apt-get -y install gnupg2 gnupg-agent kgpg gnome-encfs-manager ettercap-graphical
 
 cfdict: apache2 nodejs ruby
 	apt-get install -y jshon

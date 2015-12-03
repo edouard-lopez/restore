@@ -42,7 +42,7 @@ video:
 	apt-get -y install smplayer vlc
 
 graphic:
-	apt-get -y install {shutter,libgoo-canvas-perl} kipi-plugins{,-common} agave
+	apt-get -y install {shutter,libgoo-canvas-perl} kipi-plugins{,-common} agave gwenview okular djvulibre-bin
 
 virtualization:
 	apt-get -y install virtualbox-nonfree virtualbox-guest-utils
@@ -60,10 +60,15 @@ datamining:
 
 
 scanner:
+	[[ ! -f ${additionRepos} ]] && touch ${additionRepos} || true
 	grep "${distroUbuntu}-arakhne" ${additionRepos} \
 		&& echo "deb http://download.tuxfamily.org/arakhne/ubuntu ${distroUbuntu}-arakhne universe" >> ${additionRepos}
-	wget -q http://download.tuxfamily.org/arakhne/public.key -O- | apt-key add -
-	apt-get -y install okular djvulibre-bin tesseract-ocr{,-fra} libsane-epson-perfection-1670
+	wget -q http://download.tuxfamily.org/arakhne/public2.key -O- | apt-key add -
+	apt-get update
+	apt-get -y install libsane-epson-perfection-1670
+
+scanner-extra:
+	apt-get -y tesseract-ocr{,-fra}
 
 audio:
 	apt-get -y install {libav,opus,vorbis}-tools

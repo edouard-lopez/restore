@@ -38,6 +38,9 @@ ssl-certificate: ${SSL_KEY_PATH}
 upgrade:
 	apt-get update && apt-get -y upgrade
 
+video:
+	apt-get -y install smplayer vlc
+
 graphic:
 	apt-get -y install {shutter,libgoo-canvas-perl} kipi-plugins{,-common} agave
 

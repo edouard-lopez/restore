@@ -151,6 +151,10 @@ core-utils:
 	add-apt-repository -y ppa:mozillateam/firefox-next
 	apt-get update
 	apt-get install -y git firefox zsh yakuake konsole curl
+shell: 
+	add-apt-repository ppa:fish-shell/release-2
+	apt-get update
+	apt-get install fish zsh
 	curl -L http://install.ohmyz.sh | sh
 
 repo:

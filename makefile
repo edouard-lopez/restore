@@ -26,9 +26,8 @@ SSL_KEY_NAME:=web
 SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 
 default:	backup repo core-utils editor-theme editor \
-	server-web php python ruby nodejs mysql postgres apache2  \
-	utils audio network security \
-	datamining scanner \
+	python nodejs \
+	utils network security \
 	upgrade
 	# cfdict
 
@@ -42,16 +41,15 @@ graphic:
 	apt-get -y install {shutter,libgoo-canvas-perl} kipi-plugins{,-common} agave
 
 utils:
-	add-apt-repository -y ppa:jerzy-kozera/zeal-ppa
 	apt-get update
-	apt-get -y install htop tmux tree colordiff git{,k,-gui} visual-regexp jshon verbiste{,-gnome} dolphin polly zeal
+	apt-get -y install htop tmux tree colordiff git{,k,-gui} dolphin
 
 dataviz:
 	apt-get -y install gdal-bin
 
 datamining:
 	npm install -g topojson xml2json-command underscore-cli #json tools
-	apt-get -y install jq awk
+	apt-get -y install jq awk jshon visual-regexp
 
 
 scanner:
@@ -64,7 +62,7 @@ audio:
 	apt-get -y install {libav,opus,vorbis}-tools
 
 network:
-	apt-get -y install whois bmon sshuttle python-software-properties mosh nmap
+	apt-get -y install whois bmon nethogs python-software-properties mosh nmap
 
 editor-theme: editor
 	if [[ ! -d ${settingsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${settingsDir}/tomorrow-theme; fi
@@ -84,7 +82,7 @@ ${SSL_KEY_PATH}.%:
 
 security: ssl-certificate
 	apt-get update
-	apt-get -y install gnupg2 gnupg-agent kgpg gnome-encfs-manager ettercap-graphical
+	apt-get -y install gnupg2 gnupg-agent kgpg
 	apt-get -y install keepass2 mono-complete
 
 cfdict: apache2 nodejs ruby
@@ -126,21 +124,14 @@ php:
 
 python:
 	apt-get install -y ipython
-	curl --output /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
-	python /tmp/get-pip.py
-	pip install virtualenvwrapper
 
 nodejs:
-	add-apt-repository -y ppa:chris-lea/node.js
-	apt-get update
+	curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 	apt-get install -y nodejs
 	npm update -g npm
-	npm install -g yeoman bower grunt-cli gulp
+	npm install -g yeoman gulp
 	npm install -g generator-{angular,gulp-webapp,leaflet}
-	# reactJS
-	npm install -g jshint-jsx react-tools
 	npm cache clean
-	su - "$$USER" bower cache clean
 
 ruby:
 	printf "Install RVM+Ruby\n"
@@ -153,10 +144,8 @@ ruby:
 
 editor:
 	@printf "Install editors\n"
-	add-apt-repository -y ppa:webupd8team/atom # Atom Editor
-	add-apt-repository -y ppa:webupd8team/sublime-text-3 # sublime text 3 editor
 	apt-get update
-	apt-get -q -y install vim vim-youcompleteme zim sublime-text atom tidy
+	apt-get -q -y install vim vim-youcompleteme zim
 
 core-utils:
 	add-apt-repository -y ppa:mozillateam/firefox-next
@@ -165,11 +154,7 @@ core-utils:
 	curl -L http://install.ohmyz.sh | sh
 
 repo:
-	add-apt-repository -y ppa:conscioususer/polly-daily # polly Twitter client
-	add-apt-repository -y ppa:gencfsm/ppa # encfs GUI
-	add-apt-repository -y kubuntu-ppa/ppa/ubuntu # KDE backport
-	add-apt-repository -y peterlevi/ppa/ubuntu # variety wallpaper
-	add-apt-repository -y synapse-core/testing/ubuntu # synapse launcher
+	add-apt-repository -y ppa:kubuntu-ppa/backports
 	apt-get update
 
 backup:

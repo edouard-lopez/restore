@@ -187,7 +187,6 @@ update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;
 
 backup: update-rsync-exclude
-	apt-get -y install backintime-gnome {g,}rsync
 	apt-get -y install {g,}rsync
 	update-rc.d rsync defaults
 	@backupSrc="/mnt/data"; \

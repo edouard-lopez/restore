@@ -28,6 +28,7 @@ SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 default:	backup repo core-utils editor-theme editor \
 	python nodejs \
 	utils network security \
+	fonts shell \
 	upgrade
 	# cfdict
 

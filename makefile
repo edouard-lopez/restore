@@ -151,6 +151,10 @@ core-utils:
 	add-apt-repository -y ppa:mozillateam/firefox-next
 	apt-get update
 	apt-get install -y git firefox zsh yakuake konsole curl
+
+fonts:
+	apt-get install fonts-noto{,-cjk} fonts-roboto
+	
 shell: 
 	add-apt-repository ppa:fish-shell/release-2
 	apt-get update

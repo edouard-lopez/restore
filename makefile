@@ -49,7 +49,7 @@ virtualization:
 
 utils:
 	apt-get update
-	apt-get -y install htop tmux tree colordiff git{,k,-gui} dolphin
+	apt-get -y install htop tmux tree colordiff git{,k,-gui} dolphin ncdu
 
 dataviz:
 	apt-get -y install gdal-bin

@@ -98,7 +98,7 @@ keepass:
 		&& cp KeePassHttp.plgx /usr/lib/keepass2/plugins/
 	cp "$$HOME"/.mozilla/firefox/*.default/extensions/keefox@chris.tomlinson/deps/KeePassRPC.plgx /usr/lib/keepass2/plugins/
 
-security: ssl-certificate keepass
+security: keepass #ssl-certificate
 	apt-get update
 	apt-get -y install gnupg2 gnupg-agent kgpg gnome-encfs-manager ettercap-graphical
 

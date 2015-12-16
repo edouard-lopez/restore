@@ -93,7 +93,7 @@ ${SSL_KEY_PATH}.%:
 		-out 	$@.crt
 
 keepass:
-	apt-get -y install keepass2 mono-complete
+	apt-get -y install keepass2 mono-dmcs libmono-system-management4.0-cil
 	wget -c https://raw.github.com/pfn/keepasshttp/master/KeePassHttp.plgx \
 		&& cp KeePassHttp.plgx /usr/lib/keepass2/plugins/
 	cp "$$HOME"/.mozilla/firefox/*.default/extensions/keefox@chris.tomlinson/deps/KeePassRPC.plgx /usr/lib/keepass2/plugins/

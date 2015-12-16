@@ -100,7 +100,7 @@ keepass:
 
 security: keepass #ssl-certificate
 	apt-get update
-	apt-get -y install gnupg2 gnupg-agent kgpg gnome-encfs-manager ettercap-graphical
+	apt-get -y install gnupg2 gnupg-agent kgpg ettercap-graphical
 
 cfdict: apache2 nodejs ruby
 	apt-get install -y jshon

@@ -140,7 +140,7 @@ php:
 	apt-get install -y php5{,-{mysql,pgsql}}
 
 python:
-	apt-get install -y ipython
+	apt-get install -y ipython python3{,-dev}
 
 nodejs:
 	curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -

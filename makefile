@@ -50,6 +50,8 @@ virtualization:
 utils:
 	apt-get update
 	apt-get -y install htop tmux tree colordiff git{,k,-gui} dolphin ncdu pdfshuffler
+	curl -Ls https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight
+
 
 dataviz:
 	apt-get -y install gdal-bin

@@ -180,13 +180,21 @@ core-utils:
 fonts:
 	apt-get install fonts-noto{,-cjk} fonts-roboto
 
-shell:
-	add-apt-repository ppa:fish-shell/release-2
+bash:
+	echo
+
+fish:
+	add-apt-repository --yes ppa:fish-shell/release-2
 	apt-get update
-	apt-get install fish zsh
+	apt-get install fish grc
+
+zsh:
+	apt-get install zsh
 	curl -L http://install.ohmyz.sh | sh
 	curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 	omf install https://github.com/edouard-lopez/theme-pure.git; omf theme pure
+
+shell: bash fish zsh
 
 repo:
 	add-apt-repository --yes ppa:kubuntu-ppa/backports

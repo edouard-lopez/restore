@@ -173,7 +173,7 @@ editor: shellcheck
 	apt-get -q -y install vim vim-youcompleteme zim
 
 core-utils:
-	add-apt-repository -y ppa:mozillateam/firefox-next
+	add-apt-repository --yes ppa:mozillateam/firefox-next
 	apt-get update
 	apt-get install -y git firefox zsh yakuake konsole curl
 
@@ -189,7 +189,7 @@ shell:
 	omf install https://github.com/edouard-lopez/theme-pure.git; omf theme pure
 
 repo:
-	add-apt-repository -y ppa:kubuntu-ppa/backports
+	add-apt-repository --yes ppa:kubuntu-ppa/backports
 	apt-get update
 
 update-rsync-exclude:

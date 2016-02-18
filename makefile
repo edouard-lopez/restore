@@ -187,12 +187,13 @@ fish:
 	add-apt-repository --yes ppa:fish-shell/release-2
 	apt-get update
 	apt-get install fish grc
+	curl -sL get.fisherman.sh | fish
+	fisher install pure barnybug/docker-fish-completion
+	curl -L https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
 
 zsh:
 	apt-get install zsh
 	curl -L http://install.ohmyz.sh | sh
-	curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
-	omf install https://github.com/edouard-lopez/theme-pure.git; omf theme pure
 
 shell: bash fish zsh
 

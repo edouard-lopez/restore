@@ -186,7 +186,7 @@ zsh:
 	curl --location  http://install.ohmyz.sh | sh
 
 shell: bash fish zsh
-	cd $$HOME/projects/dotfiles && install.sh
+	$$HOME/projects/dotfiles/install.sh
 
 update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;

@@ -31,8 +31,10 @@ default:	\
 	albert-launcher \
 	clipboard-manager \
 	docker \
+	file-management \
 	graphic-editor \
 	graphic-viewer \
+	monitoring \
 	nodejs yarnpkg \
 	utils network security \
 	fonts shell \
@@ -58,12 +60,21 @@ graphic-viewer:
 virtualization:
 	apt-get -y install virtualbox-nonfree virtualbox-guest-utils
 
-utils:
+monitoring:
 	apt-get update
-	apt-get -y install htop tmux tree colordiff git{,k,-gui} dolphin ncdu pdfshuffler
-	curl -Ls https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight
+	apt-get --yes install \
+		bmon \
+		htop \
+		nethogs 
 
-
+file-management:
+	apt-get update
+	add-apt-repository --yes ppa:kubuntu-ppa/backports
+	apt-get --yes install \
+		dolphin \
+		ncdu \
+		tree 
+	
 dataviz:
 	apt-get -y install gdal-bin
 
@@ -87,7 +98,7 @@ audio:
 	apt-get -y install {libav,opus,vorbis}-tools
 
 network:
-	apt-get -y install whois bmon nethogs python-software-properties mosh nmap
+	apt-get --yes install whois python-software-properties mosh nmap
 
 editor-theme: editor
 	if [[ ! -d ${settingsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${settingsDir}/tomorrow-theme; fi

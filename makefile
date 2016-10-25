@@ -229,10 +229,6 @@ zsh:
 	curl -L http://install.ohmyz.sh | sh
 
 shell: bash fish zsh
-
-repo:
-	add-apt-repository --yes ppa:kubuntu-ppa/backports
-	apt-get update
 	cd $HOME/projects/dotfiles && install.sh
 
 update-rsync-exclude:

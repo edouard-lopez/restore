@@ -32,9 +32,11 @@ default:	\
 	backup \
 	clipboard-manager \
 	docker \
+	editor-theme \
 	file-management \
 	graphic-editor \
 	graphic-viewer \
+	linter \
 	monitoring \
 	nodejs yarnpkg \
 	utils network security \
@@ -101,7 +103,7 @@ audio:
 network:
 	apt-get --yes install whois python-software-properties mosh nmap
 
-editor-theme: editor
+editor-theme:
 	if [[ ! -d ${settingsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${settingsDir}/tomorrow-theme; fi
 	ln -nfs ${settingsDir}/tomorrow-theme/vim/colors/*.vim $$HOME/.vim/colors/
 	if [[ ! -d ${settingsDir}/tomorrow-theme-konsole ]]; then git clone --depth 1 https://github.com/dram/konsole-tomorrow-theme.git ${settingsDir}/tomorrow-theme-konsole; fi
@@ -182,16 +184,9 @@ ruby:
 	gem update --system
 	gem install compass sass scss-lint bootstrap-sass
 
-shellcheck:
-	@printf "Install Shellcheck linter\n"
-	apt-get -q -y install cabal-install ghc
-	cabal update
-	cabal install cabal-install
+linter:
+	apt-get install shellcheck
 
-editor: shellcheck
-	@printf "Install editors\n"
-	apt-get update
-	apt-get -q -y install vim vim-youcompleteme zim
 
 core-utils: git terminal shell
 	add-apt-repository --yes ppa:mozillateam/firefox-next

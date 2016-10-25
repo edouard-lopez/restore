@@ -89,7 +89,8 @@ datamining:
 scanner:
 	[[ ! -f ${additionRepos} ]] && touch ${additionRepos} || true
 	grep "${distroUbuntu}-arakhne" ${additionRepos} \
-		&& echo "deb http://download.tuxfamily.org/arakhne/ubuntu ${distroUbuntu}-arakhne universe" >> ${additionRepos}
+		&& echo "deb http://download.tuxfamily.org/arakhne/ubuntu ${distroUbuntu}-arakhne universe" >> ${additionRepos} \
+		|| true
 	wget -q http://download.tuxfamily.org/arakhne/public2.key -O- | apt-key add -
 	apt-get update
 	apt-get install --yes libsane-epson-perfection-1670

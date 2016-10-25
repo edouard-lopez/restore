@@ -29,6 +29,7 @@ SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 default:	\
 	atom-editor \
 	albert-launcher \
+	backup \
 	clipboard-manager \
 	docker \
 	file-management \
@@ -235,11 +236,11 @@ update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;
 
 backup: update-rsync-exclude
-	apt-get -y install {g,}rsync
+	apt-get --yes install {g,}rsync
 	update-rc.d rsync defaults
-	@backupSrc="/mnt/data"; \
+	@backupSrc="${backupSrcRoot}"; \
 	backupDest="${backupDest}"; \
-	backupList=( "paperwork" "projects" "server" "settings" "Sync@Home" ); \
+	backupList=( "paperwork" "Pictures" "projects" "settings" ); \
 	for backupDir in $${backupList[@]}; do \
 		(crontab -u ${user} -l ; \
 			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest} --log-file \"$$HOME/rsync.log\" --exclude-from=\"$$HOME/.exclude.rsync\" "; \

@@ -243,3 +243,5 @@ yarnpkg:
 	echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 	apt-get update && apt-get install yarn
 
+languages:
+	apt-get install --yes ibus{,-pinyin,-qt4}

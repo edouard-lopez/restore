@@ -230,13 +230,8 @@ atom-editor:
 	dpkg --install ~/Downloads/atom-amd64.deb
 	
 clipboard-manager:
-	git clone https://github.com/CristianHenzel/ClipIt.git ~/projects/clip-it
-	cd clip-it
-	./autogen.sh
-	./configure
-	make
-	make install
-	
+	apt install clipit
+		
 yarnpkg:
 	apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
 	echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list

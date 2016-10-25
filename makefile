@@ -194,14 +194,25 @@ editor: shellcheck
 	apt-get update
 	apt-get -q -y install vim vim-youcompleteme zim
 
-core-utils:
+core-utils: git terminal shell
 	add-apt-repository --yes ppa:mozillateam/firefox-next
 	apt-get update
-	apt-get install -y git firefox zsh yakuake konsole curl
+	apt-get install --yes firefox
 
 fonts:
 	apt-get install fonts-noto{,-cjk} fonts-roboto
 
+git: 
+	apt-get update
+	apt-get --yes install colordiff git{,k,-gui}
+	curl -Ls https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight	
+
+terminal: 
+	apt-get install \
+		curl \
+		konsole \
+		tmux \
+		yakuake
 bash:
 	echo
 
@@ -222,6 +233,7 @@ shell: bash fish zsh
 repo:
 	add-apt-repository --yes ppa:kubuntu-ppa/backports
 	apt-get update
+	cd $HOME/projects/dotfiles && install.sh
 
 update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;

@@ -151,7 +151,7 @@ linter:
 	apt-get install shellcheck
 
 fonts:
-	apt-get install fonts-noto{,-cjk} fonts-roboto
+	apt-get install --yes fonts-noto{,-cjk} fonts-roboto
 
 core-utils: git terminal shell
 	add-apt-repository --yes ppa:mozillateam/firefox-next
@@ -164,7 +164,7 @@ git:
 	curl --location --silent https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight	
 
 terminal: 
-	apt-get install \
+	apt-get --yes install \
 		curl \
 		konsole \
 		tmux \
@@ -176,13 +176,13 @@ bash:
 fish:
 	add-apt-repository --yes ppa:fish-shell/release-2
 	apt-get update
-	apt-get install fish grc
+	apt-get install --yes fish grc
 	curl --location --output  ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
 	curl --location  https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
 
 zsh:
-	apt-get install zsh
+	apt-get install --yes zsh
 	curl --location  http://install.ohmyz.sh | sh
 
 shell: bash fish zsh

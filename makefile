@@ -142,7 +142,7 @@ python:
 	apt-get install --yes ipython python3{,-dev}
 
 nodejs:
-	curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 	apt-get install --yes nodejs
 	npm update --global npm
 	npm cache clean

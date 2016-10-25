@@ -150,27 +150,6 @@ apache2:
 		a2enmod alias autoindex deflate expires headers include php5 rewrite vhost_alias
 		service apache2 restart
 
-mysql:
-	apt-get --yes install mysql-{{server,client},workbench}
-
-# As normal user
-pgmodelerVersion:=0.8.0-alpha1
-pgmodeler:
-	echo "out-of  date version → update!"
-	cd ~/apps; \
-		[[ ! -f ${pgmodelerVersion}.tar.gz ]] && wget -O "${pgmodelerVersion}.tar.gz" https://github.com/pgmodeler/pgmodeler/archive/v${pgmodelerVersion}.tar.gz || true; \
-		tar xvzf ${pgmodelerVersion}.tar.gz -C ./ ; \
-		cd pgmodeler-${pgmodelerVersion} \
-		&& qmake -qt=5 QT+=designer pgmodeler.pro &&  make && make install
-
-postgres:
-	apt-get --yes install postgresql pgadmin3
-	echo "pgmodeler requirements"
-	apt-get --yes install libxml2{,-dev} libpq{5,-dev} qt{4,5}-qmake g++ libqt4-dev qt4-dev-tools libqt5serviceframework5 qtcreator{,-dev}  qtbase5-dev{,-tools} qttools5-dev
-
-php:
-	apt-get install --yes php5{,-{mysql,pgsql}}
-
 python:
 	apt-get install --yes ipython python3{,-dev}
 

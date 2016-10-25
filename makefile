@@ -28,6 +28,8 @@ SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 
 default:	backup repo core-utils editor-theme editor \
 	python nodejs \
+	graphic-editor \
+	graphic-viewer \
 	utils network security \
 	fonts shell \
 	upgrade
@@ -42,8 +44,11 @@ upgrade:
 video:
 	apt-get -y install smplayer vlc
 
-graphic:
-	apt-get -y install {shutter,libgoo-canvas-perl} kipi-plugins{,-common} agave gwenview okular djvulibre-bin
+graphic-editor:
+	apt-get --yes install {shutter,libgoo-canvas-perl} inkscape pdfshuffler
+	
+graphic-viewer:
+	apt-get --yes install okular djvulibre-bin
 
 virtualization:
 	apt-get -y install virtualbox-nonfree virtualbox-guest-utils

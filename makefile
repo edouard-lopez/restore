@@ -26,13 +26,18 @@ additionRepos:=/etc/apt/sources.list.d/additional-repositories.list
 SSL_KEY_NAME:=web
 SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 
-default:	backup repo core-utils editor-theme editor \
-	python nodejs \
+default:	\
+	atom-editor \
+	albert-launcher \
+	clipboard-manager \
+	docker \
 	graphic-editor \
 	graphic-viewer \
+	nodejs yarnpkg \
 	utils network security \
 	fonts shell \
 	upgrade
+	zeal-doc \
 	# cfdict
 
 ssl-certificate: ${SSL_KEY_PATH}
@@ -221,3 +226,44 @@ backup: update-rsync-exclude
 			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest} --log-file \"$$HOME/rsync.log\" --exclude-from=\"$$HOME/.exclude.rsync\" "; \
 		) | crontab -u ${user} - ; \
 	done
+	
+albert-launcher:
+	add-apt-repository --yes ppa:nilarimogard/webupd8
+	apt-get update
+	apt-get install albert	
+	
+zeal-doc:
+	add-apt-repository --yes ppa:zeal-developers/ppa
+	apt-get update
+	apt-get install zeal
+	
+docker:
+	apt-get update
+	apt-get install --yes apt-transport-https ca-certificates
+	apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+	echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
+	apt-get update
+	apt-get install docker-engine
+	service docker start
+	groupadd docker
+	usermod -aG docker $SUDO_USER
+	curl -L https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+	
+atom-editor:
+	curl --location --output ~/Downloads/atom-amd64.deb https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb
+	dpkg --install ~/Downloads/atom-amd64.deb
+	
+clipboard-manager:
+	git clone https://github.com/CristianHenzel/ClipIt.git ~/projects/clip-it
+	cd clip-it
+	./autogen.sh
+	./configure
+	make
+	make install
+	
+yarnpkg:
+	apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
+	echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+	apt-get update && apt-get install yarn
+

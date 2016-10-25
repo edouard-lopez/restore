@@ -175,7 +175,7 @@ core-utils: git terminal shell
 git: 
 	apt-get update
 	apt-get --yes install colordiff git{,k,-gui}
-	curl -Ls https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight	
+	curl --location --silent https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight	
 
 terminal: 
 	apt-get install \
@@ -191,13 +191,13 @@ fish:
 	add-apt-repository --yes ppa:fish-shell/release-2
 	apt-get update
 	apt-get install fish grc
-	curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+	curl --location --output  ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
-	curl -L https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
+	curl --location  https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
 
 zsh:
 	apt-get install zsh
-	curl -L http://install.ohmyz.sh | sh
+	curl --location  http://install.ohmyz.sh | sh
 
 shell: bash fish zsh
 	cd $HOME/projects/dotfiles && install.sh
@@ -237,7 +237,7 @@ docker:
 	service docker start
 	groupadd docker
 	usermod -aG docker $SUDO_USER
-	curl -L https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+	curl --location  https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 	chmod +x /usr/local/bin/docker-compose
 	
 atom-editor:

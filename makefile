@@ -30,17 +30,21 @@ default:	\
 	atom-editor \
 	albert-launcher \
 	backup \
+	core-utils \
 	clipboard-manager \
 	docker \
 	editor-theme \
 	file-management \
+	fonts \
 	graphic-editor \
 	graphic-viewer \
 	linter \
 	monitoring \
+	python \
 	nodejs yarnpkg \
 	utils network security \
-	fonts shell \
+	shell bash fish zsh \
+	terminal \
 	upgrade
 	zeal-doc \
 	# cfdict
@@ -189,14 +193,13 @@ ruby:
 linter:
 	apt-get install shellcheck
 
+fonts:
+	apt-get install fonts-noto{,-cjk} fonts-roboto
 
 core-utils: git terminal shell
 	add-apt-repository --yes ppa:mozillateam/firefox-next
 	apt-get update
 	apt-get install --yes firefox
-
-fonts:
-	apt-get install fonts-noto{,-cjk} fonts-roboto
 
 git: 
 	apt-get update
@@ -209,6 +212,7 @@ terminal:
 		konsole \
 		tmux \
 		yakuake
+	
 bash:
 	echo
 

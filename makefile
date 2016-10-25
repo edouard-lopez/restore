@@ -101,7 +101,7 @@ scanner:
 scanner-extra:
 	apt-get install --yes tesseract-ocr{,-fra}
 
-audio:
+audio-encoding:
 	apt-get --yes install {libav,opus,vorbis}-tools
 
 network:

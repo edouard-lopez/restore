@@ -179,13 +179,16 @@ fish:
 	curl --location --output  $$HOME/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
 	curl --location  https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
+	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/.config/fish/
 
 zsh:
 	apt-get install --yes zsh
 	curl --location  http://install.ohmyz.sh | sh
+	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/.oh-my-zsh
 
 shell: bash fish zsh
 	$$HOME/projects/dotfiles/install.sh
+	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
 
 update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;

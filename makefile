@@ -145,7 +145,7 @@ server-web: php mysql postgres apache2 python nodejs ruby
 apache2:
 		apt-get --yes install apache2 apache2-utils
 		rm /etc/apache2/{sites-available,sites-enabled} -rf
-		ln -nfs /mnt/data/settings/apache2/* /etc/apache2/
+		ln -nfs "${settingsDir}"/apache2/* /etc/apache2/
 		mkdir /etc/apache2/sites-enabled
 		ln -nfs /etc/apache2/sites-available/* /etc/apache2/sites-enabled/
 		a2enmod alias autoindex deflate expires headers include php5 rewrite vhost_alias

@@ -136,7 +136,7 @@ security: keepass #ssl-certificate
 
 cfdict: apache2 nodejs ruby
 	apt-get install --yes jshon
-	cd $HOME/.marks/cfdict-client/
+	cd $$HOME/.marks/cfdict-client/
 
 python:
 	apt-get install --yes ipython python3{,-dev}
@@ -186,7 +186,7 @@ zsh:
 	curl --location  http://install.ohmyz.sh | sh
 
 shell: bash fish zsh
-	cd $HOME/projects/dotfiles && install.sh
+	cd $$HOME/projects/dotfiles && install.sh
 
 update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;
@@ -222,7 +222,7 @@ docker:
 	apt-get install docker-engine
 	service docker start
 	groupadd docker
-	usermod -aG docker $SUDO_USER
+	usermod -aG docker $$SUDO_USER
 	curl --location  https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 	chmod +x /usr/local/bin/docker-compose
 	

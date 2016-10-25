@@ -176,7 +176,7 @@ fish:
 	add-apt-repository --yes ppa:fish-shell/release-2
 	apt-get update
 	apt-get install --yes fish grc
-	curl --location --output  ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+	curl --location --output  $$HOME/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
 	curl --location  https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
 
@@ -226,8 +226,8 @@ docker:
 	chmod +x /usr/local/bin/docker-compose
 	
 atom-editor:
-	curl --location --output ~/Downloads/atom-amd64.deb https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb
-	dpkg --install ~/Downloads/atom-amd64.deb
+	curl --location --output $$HOME/Downloads/atom-amd64.deb https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb
+	dpkg --install $$HOME/Downloads/atom-amd64.deb
 	
 clipboard-manager:
 	apt install clipit

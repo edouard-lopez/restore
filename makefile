@@ -168,11 +168,9 @@ python:
 	apt-get install --yes ipython python3{,-dev}
 
 nodejs:
-	curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+	curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 	apt-get install --yes nodejs
 	npm update -g npm
-	npm install -g yeoman gulp
-	npm install -g generator-{angular,gulp-webapp,leaflet}
 	npm cache clean
 
 ruby:

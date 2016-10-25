@@ -46,10 +46,10 @@ ssl-certificate: ${SSL_KEY_PATH}
 
 
 upgrade:
-	apt-get update && apt-get -y upgrade
+	apt-get update && apt-get --yes upgrade
 
 video:
-	apt-get -y install smplayer vlc
+	apt-get --yes install smplayer vlc
 
 graphic-editor:
 	apt-get --yes install {shutter,libgoo-canvas-perl} inkscape pdfshuffler
@@ -58,7 +58,7 @@ graphic-viewer:
 	apt-get --yes install okular djvulibre-bin
 
 virtualization:
-	apt-get -y install virtualbox-nonfree virtualbox-guest-utils
+	apt-get --yes install virtualbox-nonfree virtualbox-guest-utils
 
 monitoring:
 	apt-get update
@@ -76,11 +76,11 @@ file-management:
 		tree 
 	
 dataviz:
-	apt-get -y install gdal-bin
+	apt-get --yes install gdal-bin
 
 datamining:
 	npm install -g topojson xml2json-command underscore-cli #json tools
-	apt-get -y install jq awk jshon visual-regexp
+	apt-get --yes install jq awk jshon visual-regexp
 
 
 scanner:
@@ -89,13 +89,13 @@ scanner:
 		&& echo "deb http://download.tuxfamily.org/arakhne/ubuntu ${distroUbuntu}-arakhne universe" >> ${additionRepos}
 	wget -q http://download.tuxfamily.org/arakhne/public2.key -O- | apt-key add -
 	apt-get update
-	apt-get -y install libsane-epson-perfection-1670
+	apt-get install --yes libsane-epson-perfection-1670
 
 scanner-extra:
-	apt-get -y tesseract-ocr{,-fra}
+	apt-get install --yes tesseract-ocr{,-fra}
 
 audio:
-	apt-get -y install {libav,opus,vorbis}-tools
+	apt-get --yes install {libav,opus,vorbis}-tools
 
 network:
 	apt-get --yes install whois python-software-properties mosh nmap
@@ -124,17 +124,17 @@ keepass:
 
 security: keepass #ssl-certificate
 	apt-get update
-	apt-get -y install gnupg2 gnupg-agent kgpg ettercap-graphical
+	apt-get --yes install gnupg2 gnupg-agent kgpg ettercap-graphical
 
 cfdict: apache2 nodejs ruby
-	apt-get install -y jshon
+	apt-get install --yes jshon
 	cd $HOME/.marks/cfdict-client/
 
 # meta task
 server-web: php mysql postgres apache2 python nodejs ruby
 
 apache2:
-		apt-get -y install apache2 apache2-utils
+		apt-get --yes install apache2 apache2-utils
 		rm /etc/apache2/{sites-available,sites-enabled} -rf
 		ln -nfs /mnt/data/settings/apache2/* /etc/apache2/
 		mkdir /etc/apache2/sites-enabled
@@ -143,7 +143,7 @@ apache2:
 		service apache2 restart
 
 mysql:
-	apt-get -y install mysql-{{server,client},workbench}
+	apt-get --yes install mysql-{{server,client},workbench}
 
 # As normal user
 pgmodelerVersion:=0.8.0-alpha1
@@ -156,19 +156,19 @@ pgmodeler:
 		&& qmake -qt=5 QT+=designer pgmodeler.pro &&  make && make install
 
 postgres:
-	apt-get -y install postgresql pgadmin3
+	apt-get --yes install postgresql pgadmin3
 	echo "pgmodeler requirements"
-	apt-get -y install libxml2{,-dev} libpq{5,-dev} qt{4,5}-qmake g++ libqt4-dev qt4-dev-tools libqt5serviceframework5 qtcreator{,-dev}  qtbase5-dev{,-tools} qttools5-dev
+	apt-get --yes install libxml2{,-dev} libpq{5,-dev} qt{4,5}-qmake g++ libqt4-dev qt4-dev-tools libqt5serviceframework5 qtcreator{,-dev}  qtbase5-dev{,-tools} qttools5-dev
 
 php:
-	apt-get install -y php5{,-{mysql,pgsql}}
+	apt-get install --yes php5{,-{mysql,pgsql}}
 
 python:
-	apt-get install -y ipython python3{,-dev}
+	apt-get install --yes ipython python3{,-dev}
 
 nodejs:
 	curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-	apt-get install -y nodejs
+	apt-get install --yes nodejs
 	npm update -g npm
 	npm install -g yeoman gulp
 	npm install -g generator-{angular,gulp-webapp,leaflet}

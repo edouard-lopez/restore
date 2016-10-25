@@ -214,8 +214,8 @@ fish:
 	add-apt-repository --yes ppa:fish-shell/release-2
 	apt-get update
 	apt-get install fish grc
-	curl -sL get.fisherman.sh | fish
-	fisher install pure barnybug/docker-fish-completion
+	curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
 	curl -L https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
 
 zsh:

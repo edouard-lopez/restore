@@ -86,9 +86,8 @@ dataviz:
 	apt-get --yes install gdal-bin
 
 datamining:
-	npm install -g topojson xml2json-command underscore-cli #json tools
+	npm install --global topojson xml2json-command underscore-cli #json tools
 	apt-get --yes install jq awk jshon visual-regexp
-
 
 scanner:
 	[[ ! -f ${additionRepos} ]] && touch ${additionRepos} || true
@@ -178,7 +177,7 @@ python:
 nodejs:
 	curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 	apt-get install --yes nodejs
-	npm update -g npm
+	npm update --global npm
 	npm cache clean
 
 ruby:

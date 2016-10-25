@@ -15,9 +15,10 @@ endif
 SHELL := /bin/bash
 user := ed8
 
-settingsDir:=/mnt/data/settings
-projectsDir:=/mnt/data/projects
-backupDest:=/media/ed8/51ee8de5-b1a9-4d57-9a94-24b9b1d0d10b/data-backup
+settingsDir:=/data/settings
+projectsDir:=/data/projects
+backupSrcRoot:=/data
+backupDest:=/media/ed8/ed-big5/data-backup
 distroUbuntu:=trusty
 additionRepos:=/etc/apt/sources.list.d/additional-repositories.list
 

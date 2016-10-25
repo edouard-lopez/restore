@@ -138,9 +138,6 @@ cfdict: apache2 nodejs ruby
 	apt-get install --yes jshon
 	cd $HOME/.marks/cfdict-client/
 
-# meta task
-server-web: php mysql postgres apache2 python nodejs ruby
-
 apache2:
 		apt-get --yes install apache2 apache2-utils
 		rm /etc/apache2/{sites-available,sites-enabled} -rf

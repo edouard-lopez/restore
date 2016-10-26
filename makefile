@@ -74,7 +74,7 @@ monitoring:
 	apt-get --yes install \
 		bmon \
 		htop \
-		nethogs 
+		nethogs
 
 file-management:
 	apt-get update
@@ -82,8 +82,8 @@ file-management:
 	apt-get --yes install \
 		dolphin \
 		ncdu \
-		tree 
-	
+		tree
+
 dataviz:
 	apt-get --yes install gdal-bin
 
@@ -161,18 +161,18 @@ core-utils: git terminal shell
 		vim \
 		firefox
 
-git: 
+git:
 	apt-get update
 	apt-get --yes install colordiff git{,k,-gui}
-	curl --location --silent https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight	
+	curl --location --silent https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight
 
-terminal: 
+terminal:
 	apt-get --yes install \
 		curl \
 		konsole \
 		tmux \
 		yakuake
-	
+
 bash:
 	echo
 
@@ -208,17 +208,17 @@ backup: update-rsync-exclude
 			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest} --log-file \"$$HOME/rsync.log\" --exclude-from=\"$$HOME/.exclude.rsync\" "; \
 		) | crontab -u ${user} - ; \
 	done
-	
+
 albert-launcher:
 	add-apt-repository --yes ppa:nilarimogard/webupd8
 	apt-get update
-	apt-get install albert	
-	
+	apt-get install albert
+
 zeal-doc:
 	add-apt-repository --yes ppa:zeal-developers/ppa
 	apt-get update
 	apt-get install zeal
-	
+
 docker:
 	apt-get update
 	apt-get install --yes apt-transport-https ca-certificates

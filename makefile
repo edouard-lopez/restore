@@ -189,12 +189,15 @@ terminal:
 bash:
 	echo
 
-fish:
+fish-plugins:
+	pip install virtualfish
 	curl --location --silent https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
+	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
+
+fish: fish-plugins
 	add-apt-repository --yes ppa:fish-shell/release-2
 	apt-get update
 	apt-get install --yes fish grc
-	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
 	curl --location --silent --output  $$HOME/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/.config/fish/
 

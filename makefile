@@ -65,7 +65,11 @@ graphic-editor:
 	apt-get --yes install {shutter,libgoo-canvas-perl} inkscape pdfshuffler
 
 graphic-viewer:
-	apt-get --yes install okular djvulibre-bin
+	apt-get --yes install \
+		okular \
+		djvulibre-bin \
+		pdfshuffler \
+		pdf2djvu
 
 virtualization:
 	apt-get --yes install virtualbox-nonfree virtualbox-guest-utils

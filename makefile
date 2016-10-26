@@ -140,7 +140,10 @@ cfdict: apache2 nodejs ruby
 	cd $$HOME/.marks/cfdict-client/
 
 python:
-	apt-get install --yes ipython python3{,-dev}
+	apt-get install --yes \
+	python3{,-dev} \
+	python3-venv \
+	ipython \
 
 nodejs:
 	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -

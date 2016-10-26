@@ -247,7 +247,9 @@ yarnpkg:
 	apt-get update && apt-get install yarn
 
 languages:
-	apt-get install --yes ibus{,-pinyin,-qt4}
+	apt-get install --yes \
+		ibus{,-pinyin,-qt4} \
+		gucharmap
 
 kde-icons:
 	apt install --yes \

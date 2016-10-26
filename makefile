@@ -39,6 +39,7 @@ default:	\
 	graphic-editor \
 	graphic-viewer \
 	kde \
+	languages \
 	linter \
 	monitoring \
 	python \

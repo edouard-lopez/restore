@@ -155,7 +155,9 @@ fonts:
 core-utils: git terminal shell
 	add-apt-repository --yes ppa:mozillateam/firefox-next
 	apt-get update
-	apt-get install --yes firefox
+	apt-get install --yes \
+		vim \
+		firefox
 
 git: 
 	apt-get update

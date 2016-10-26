@@ -149,6 +149,7 @@ python:
 	apt-get install --yes \
 	python3{,-dev} \
 	python3-venv \
+	python{,3}-pip \
 	ipython \
 
 nodejs:

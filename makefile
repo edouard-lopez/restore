@@ -269,3 +269,12 @@ kde: kde-icons kde-thumbnail
 		kdelibs5-data \
 		kdelibs5-plugins \
 
+tribler:
+	if ! type tribler &> /dev/null; then \
+		curl --location --output /tmp/tribler.deb https://github.com/Tribler/tribler/releases/download/v6.6.0-exp1/tribler_6.6.0-exp1_all.deb \
+		&& dpkg --install /tmp/tribler.deb \
+	; fi
+
+torrent: tribler
+	apt install --yes \
+		deluge{,d,-gtk,-torrent}

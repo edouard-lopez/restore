@@ -231,14 +231,16 @@ docker:
 	usermod -aG docker $$SUDO_USER
 	curl --location  https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 	chmod +x /usr/local/bin/docker-compose
-	
+
 atom-editor:
-	curl --location --output $$HOME/Downloads/atom-amd64.deb https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb
-	dpkg --install $$HOME/Downloads/atom-amd64.deb
-	
+	if ! type atom; then \
+		curl --location --output $$HOME/Downloads/atom-amd64.deb https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb \
+		&& dpkg --install $$HOME/Downloads/atom-amd64.deb \
+	; fi
+
 clipboard-manager:
 	apt install clipit
-		
+
 yarnpkg:
 	apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
 	echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list

@@ -226,16 +226,25 @@ zeal-doc:
 	apt-get update
 	apt-get install zeal
 
-docker:
-	apt-get update
-	apt-get install --yes apt-transport-https ca-certificates
+
+docker-engine:
+	if ! type docker; then \
 	apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 	echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
 	apt-get update
-	apt-get install docker-engine
+	apt-get install --yes \
+		apt-transport-https \
+		ca-certificates \
+		docker-engine
 	service docker start
-	groupadd docker
+	groupadd docker || true
 	usermod -aG docker $$SUDO_USER
+	; fi
+
+
+docker-compose:
+
+docker: docker-engine docker-compose
 	curl --location --silent  https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 	chmod +x /usr/local/bin/docker-compose
 

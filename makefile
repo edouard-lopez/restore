@@ -30,6 +30,7 @@ default:	\
 	atom-editor \
 	albert-launcher \
 	backup \
+	clean \
 	core-utils \
 	clipboard-manager \
 	docker \
@@ -286,3 +287,13 @@ tribler:
 torrent: tribler
 	apt install --yes \
 		deluge{,d,-gtk,-torrent}
+
+clean:
+	apt remove \
+		pidgin \
+		transmission \
+		orca \
+		hexchat \
+		thunderbird 
+	apt autoremove
+	apt autoclean

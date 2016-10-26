@@ -56,11 +56,11 @@ upgrade:
 	apt-get update && apt-get --yes upgrade
 
 video:
-	apt-get --yes install smplayer vlc
+	apt-get --yes install mplayer smplayer vlc
 
 graphic-editor:
 	apt-get --yes install {shutter,libgoo-canvas-perl} inkscape pdfshuffler
-	
+
 graphic-viewer:
 	apt-get --yes install okular djvulibre-bin
 

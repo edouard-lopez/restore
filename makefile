@@ -108,7 +108,11 @@ audio-encoding:
 	apt-get --yes install {libav,opus,vorbis}-tools
 
 network:
-	apt-get --yes install whois python-software-properties mosh nmap
+	apt-get --yes install \
+		whois \
+		python-software-properties \
+		mosh \
+		nmap
 
 editor-theme:
 	if [[ ! -d ${projectsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${projectsDir}/tomorrow-theme; fi

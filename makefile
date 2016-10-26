@@ -184,17 +184,17 @@ bash:
 	echo
 
 fish:
+	curl --location --silent https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
 	add-apt-repository --yes ppa:fish-shell/release-2
 	apt-get update
 	apt-get install --yes fish grc
-	curl --location --output  $$HOME/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
-	curl --location  https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
+	curl --location --silent --output  $$HOME/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/.config/fish/
 
 zsh:
 	apt-get install --yes zsh
-	curl --location  http://install.ohmyz.sh | sh
+	curl --location --silent  http://install.ohmyz.sh | sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/.oh-my-zsh
 
 shell: bash fish zsh
@@ -236,12 +236,12 @@ docker:
 	service docker start
 	groupadd docker
 	usermod -aG docker $$SUDO_USER
-	curl --location  https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+	curl --location --silent  https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 	chmod +x /usr/local/bin/docker-compose
 
 atom-editor:
 	if ! type atom; then \
-		curl --location --output $$HOME/Downloads/atom-amd64.deb https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb \
+		curl --location --silent --output $$HOME/Downloads/atom-amd64.deb https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb \
 		&& dpkg --install $$HOME/Downloads/atom-amd64.deb \
 	; fi
 
@@ -280,7 +280,7 @@ kde: kde-icons kde-thumbnail
 
 tribler:
 	if ! type tribler &> /dev/null; then \
-		curl --location --output /tmp/tribler.deb https://github.com/Tribler/tribler/releases/download/v6.6.0-exp1/tribler_6.6.0-exp1_all.deb \
+		curl --location --silent --output /tmp/tribler.deb https://github.com/Tribler/tribler/releases/download/v6.6.0-exp1/tribler_6.6.0-exp1_all.deb \
 		&& dpkg --install /tmp/tribler.deb \
 	; fi
 

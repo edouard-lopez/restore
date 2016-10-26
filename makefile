@@ -296,6 +296,19 @@ kde: kde-icons kde-thumbnail
 		kdelibs5-data \
 		kdelibs5-plugins \
 
+seafile:
+	add-apt-repository --yes ppa:seafile/seafile-client
+	apt-get update
+	apt-get install --yes seafile-gui
+
+syncthing:
+	curl --silent https://syncthing.net/release-key.txt | sudo apt-key add -
+	echo "deb http://apt.syncthing.net/ syncthing release" | sudo tee /etc/apt/sources.list.d/syncthing.list
+	apt-get update
+	apt-get install --yes syncthing
+
+sync: seafile syncthing
+
 tribler:
 	if ! type tribler &> /dev/null; then \
 		curl --location --silent --output /tmp/tribler.deb https://github.com/Tribler/tribler/releases/download/v6.6.0-exp1/tribler_6.6.0-exp1_all.deb \

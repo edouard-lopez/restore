@@ -112,7 +112,8 @@ network:
 		whois \
 		python-software-properties \
 		mosh \
-		nmap
+		nmap \
+		traceroute
 
 editor-theme:
 	if [[ ! -d ${projectsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${projectsDir}/tomorrow-theme; fi

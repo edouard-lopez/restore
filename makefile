@@ -69,7 +69,7 @@ graphic-viewer:
 		okular \
 		djvulibre-bin \
 		pdfshuffler \
-		pdf2djvu
+		pdf2djvu \
 
 virtualization:
 	apt-get --yes install virtualbox-nonfree virtualbox-guest-utils
@@ -106,7 +106,9 @@ scanner:
 	apt-get install --yes libsane-epson-perfection-1670
 
 scanner-extra:
-	apt-get install --yes tesseract-ocr{,-fra}
+	apt-get install --yes \
+		tesseract-ocr{,-fra} \
+		pdfsandwich
 
 audio-encoding:
 	apt-get --yes install {libav,opus,vorbis}-tools

@@ -152,7 +152,10 @@ linter:
 	apt-get install shellcheck
 
 fonts:
-	apt-get install --yes fonts-noto{,-cjk} fonts-roboto
+	apt-get install --yes \
+		fonts-noto{,-cjk} \
+		fonts-roboto \
+		fonts-symbola
 
 core-utils: git terminal shell
 	add-apt-repository --yes ppa:mozillateam/firefox-next

@@ -156,6 +156,7 @@ python:
 	python3{,-dev} \
 	python3-venv \
 	python{,3}-pip \
+	python{,3}-setuptools \
 	ipython \
 
 nodejs:

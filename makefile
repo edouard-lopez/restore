@@ -86,6 +86,8 @@ file-management:
 	add-apt-repository --yes ppa:kubuntu-ppa/backports
 	apt-get --yes install \
 		dolphin \
+		dolphin-plugins \
+		kdegraphics-thumbnailers kio-extras kdemultimedia-kio-plugins \
 		ncdu \
 		tree
 

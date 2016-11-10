@@ -67,6 +67,7 @@ graphic-editor:
 graphic-viewer:
 	apt-get --yes install \
 		okular \
+		okular-extra-backends \
 		djvulibre-bin \
 		pdfshuffler \
 		pdf2djvu \

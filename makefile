@@ -220,6 +220,7 @@ zsh:
 shell: bash fish zsh
 	$$HOME/projects/dotfiles/install.sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
+	apt install xrectsel
 
 update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;

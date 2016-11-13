@@ -39,6 +39,7 @@ default:	\
 	fonts \
 	graphic-editor \
 	graphic-viewer \
+	photo-management \
 	kde \
 	languages \
 	linter \
@@ -70,7 +71,13 @@ graphic-viewer:
 		okular-extra-backends \
 		djvulibre-bin \
 		pdfshuffler \
-		pdf2djvu \
+		pdf2djvu
+
+photo-management:
+	add-apt-repository --yes ppa:philip5/extra
+	apt-get update
+	apt-get install --yes \
+		digikam
 
 virtualization:
 	apt-get --yes install virtualbox-nonfree virtualbox-guest-utils

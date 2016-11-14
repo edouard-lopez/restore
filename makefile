@@ -167,6 +167,7 @@ python:
 	python3-venv \
 	python{,3}-pip \
 	python{,3}-setuptools \
+	pip install wheel \
 	ipython \
 
 nodejs:

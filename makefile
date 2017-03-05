@@ -107,13 +107,9 @@ datamining:
 	apt-get --yes install jq awk jshon visual-regexp
 
 scanner:
-	[[ ! -f ${additionRepos} ]] && touch ${additionRepos} || true
-	grep "${distroUbuntu}-arakhne" ${additionRepos} \
-		&& echo "deb http://download.tuxfamily.org/arakhne/ubuntu ${distroUbuntu}-arakhne universe" >> ${additionRepos} \
-		|| true
-	wget -q http://download.tuxfamily.org/arakhne/public2.key -O- | apt-key add -
-	apt-get update
-	apt-get install --yes libsane-epson-perfection-1670
+	curl --location --silent --output /tmp/scanner.deb https://download.tuxfamily.org/arakhne/ubuntu/pool/universe/libs/libsane-epson-perfection/libsane-epson-perfection-1670_3.0-21arakhne1_all.deb
+	sudo dpkg -i /tmp/scanner.deb 
+
 
 scanner-extra:
 	apt-get install --yes \

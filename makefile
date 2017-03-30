@@ -175,7 +175,7 @@ python:
 	pip install wheel \
 	ipython \
 
-nodejs:
+nodejs: yarnpkg
 	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 	apt-get install --yes nodejs
 	npm update --global npm

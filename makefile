@@ -57,8 +57,10 @@ default:	\
 ssl-certificate: ${SSL_KEY_PATH}
 
 brave:
-	wget -O brave.deb https://laptop-updates.brave.com/latest/mint64
-	sudo dpkg -i ./brave.deb
+	if ! type brave; then \
+		wget -O brave.deb https://laptop-updates.brave.com/latest/mint64;\
+		dpkg -i ./brave.deb; \
+	fi
 
 chromium:
 	apt install --yes chromium-browser

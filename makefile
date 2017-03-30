@@ -189,9 +189,7 @@ linter:
 fonts:
 	apt-get install --yes \
 		fonts-noto{,-cjk} \
-		fonts-roboto \
 		fonts-symbola
-	curl --location --silent --output /usr/share/fonts/opentype/FontAwesome.otf https://github.com/FortAwesome/Font-Awesome/raw/v4.7.0/fonts/FontAwesome.otf
 
 core-utils: git terminal shell
 	add-apt-repository --yes ppa:mozillateam/firefox-next

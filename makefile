@@ -174,8 +174,9 @@ python:
 	python3-venv \
 	python{,3}-pip \
 	python{,3}-setuptools \
-	pip install wheel \
-	ipython \
+	ipython
+	pip install wheel
+	pip install --upgrade pip
 
 nodejs: yarnpkg
 	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -

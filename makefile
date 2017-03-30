@@ -65,7 +65,13 @@ brave:
 chromium:
 	apt install --yes chromium-browser
 
-browser: chromium brave
+firefox:
+	cp config/firefox-next-ppa.pref /etc/apt/preferences.d/
+	add-apt-repository --yes ppa:mozillateam/firefox-next
+	apt-get update
+	apt install --yes firefox
+
+browser: chromium brave firefox
 
 upgrade:
 	apt-get update && apt-get --yes upgrade
@@ -194,12 +200,9 @@ fonts:
 		fonts-noto{,-cjk} \
 		fonts-symbola
 
-core-utils: git terminal shell
-	add-apt-repository --yes ppa:mozillateam/firefox-next
-	apt-get update
+core-utils: git terminal shell firefox
 	apt-get install --yes \
-		vim \
-		firefox
+		vim
 
 git:
 	apt-get update

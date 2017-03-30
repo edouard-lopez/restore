@@ -51,6 +51,7 @@ default:	\
 	shell bash fish zsh \
 	terminal \
 	upgrade
+	wallpaper \
 	zeal-doc \
 	# cfdict
 
@@ -281,7 +282,6 @@ zeal-doc:
 	apt-get update
 	apt-get install zeal
 
-
 docker-engine:
 	if ! type docker; then \
 		apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D; \
@@ -365,6 +365,11 @@ tribler:
 torrent: tribler
 	apt install --yes \
 		deluge{,d,-gtk,-torrent}
+
+wallpaper:
+	add-apt-repository --yes ppa:peterlevi/ppa
+	apt-get update
+	apt-get install --yes variety
 
 clean:
 	apt remove \

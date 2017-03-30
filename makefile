@@ -216,7 +216,6 @@ bash:
 	echo
 
 fish-plugins:
-	pip install virtualfish
 	curl --location --silent https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
 	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
 

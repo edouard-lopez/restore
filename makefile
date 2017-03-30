@@ -30,6 +30,7 @@ default:	\
 	atom-editor \
 	albert-launcher \
 	backup \
+	browser \
 	clean \
 	core-utils \
 	clipboard-manager \
@@ -55,6 +56,14 @@ default:	\
 
 ssl-certificate: ${SSL_KEY_PATH}
 
+brave:
+	wget -O brave.deb https://laptop-updates.brave.com/latest/mint64
+	sudo dpkg -i ./brave.deb
+
+chromium:
+	apt install --yes chromium-browser
+
+browser: chromium brave
 
 upgrade:
 	apt-get update && apt-get --yes upgrade

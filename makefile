@@ -219,7 +219,7 @@ fish-plugins:
 	curl --location --silent https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
 	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
 
-fish: fish-plugins
+fish: 
 	add-apt-repository --yes ppa:fish-shell/release-2
 	apt-get update
 	apt-get install --yes fish grc
@@ -231,7 +231,7 @@ zsh:
 	curl --location --silent  http://install.ohmyz.sh | sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/.oh-my-zsh
 
-shell: bash fish zsh
+shell: bash fish zsh fish-plugins
 	$$HOME/projects/dotfiles/install.sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
 	apt install xrectsel

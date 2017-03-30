@@ -240,6 +240,22 @@ shell: bash fish zsh fish-plugins
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
 	apt install xrectsel
 
+shell-theme:
+	if ! -d ~/.config/base16-shell; then \
+		git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell; \
+	else \
+		pushd  ~/.config/base16-shell; git pull; \
+	fi
+	if ! -d ~/projects/base16-konsole; then \
+		git clone https://github.com/chriskempson/base16-shell.git ~/projects/base16-konsole; \
+	else \
+		pushd  ~/projects/base16-konsole; git pull; \
+		cp base16-tomorrow* ~/.kde/share/app/konsole/
+	fi
+
+
+theme: shell-theme
+
 update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;
 

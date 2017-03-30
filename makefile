@@ -114,7 +114,7 @@ file-management:
 		kdegraphics-thumbnailers kio-extras kdemultimedia-kio-plugins \
 		ncdu \
 		tree
-	sudo ln -s /usr/lib/x86_64-linux-gnu/plugins/* /usr/lib/x86_64-linux-gnu/qt5/plugins/  # icon bug in KDE
+	ln -s /usr/lib/x86_64-linux-gnu/plugins/* /usr/lib/x86_64-linux-gnu/qt5/plugins/  # icon bug in KDE
 
 dataviz:
 	apt-get --yes install gdal-bin
@@ -125,7 +125,7 @@ datamining: nodejs
 
 scanner:
 	curl --location --silent --output /tmp/scanner.deb https://download.tuxfamily.org/arakhne/ubuntu/pool/universe/libs/libsane-epson-perfection/libsane-epson-perfection-1670_3.0-21arakhne1_all.deb
-	sudo dpkg -i /tmp/scanner.deb 
+	dpkg -i /tmp/scanner.deb
 
 
 scanner-extra:
@@ -223,7 +223,7 @@ fish-plugins:
 	curl --location --silent https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
 	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion'
 
-fish: 
+fish:
 	add-apt-repository --yes ppa:fish-shell/release-2
 	apt-get update
 	apt-get install --yes fish grc
@@ -269,7 +269,7 @@ zeal-doc:
 docker-engine:
 	if ! type docker; then \
 		apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D; \
-		echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list; \
+		echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list; \
 		apt-get update; \
 		apt-get install --yes \
 			apt-transport-https \
@@ -298,7 +298,7 @@ clipboard-manager:
 
 yarnpkg:
 	apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
-	echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+	echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 	apt-get update && apt-get install yarn
 
 languages:
@@ -333,8 +333,8 @@ seafile:
 	apt-get install --yes seafile-gui
 
 syncthing:
-	curl --silent https://syncthing.net/release-key.txt | sudo apt-key add -
-	echo "deb http://apt.syncthing.net/ syncthing release" | sudo tee /etc/apt/sources.list.d/syncthing.list
+	curl --silent https://syncthing.net/release-key.txt | apt-key add -
+	echo "deb http://apt.syncthing.net/ syncthing release" | tee /etc/apt/sources.list.d/syncthing.list
 	apt-get update
 	apt-get install --yes syncthing
 

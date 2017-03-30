@@ -79,7 +79,6 @@ graphic-viewer:
 		okular \
 		okular-extra-backends \
 		djvulibre-bin \
-		pdfshuffler \
 		pdf2djvu
 
 photo-management:

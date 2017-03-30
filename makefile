@@ -276,10 +276,10 @@ docker-engine:
 
 
 docker-compose:
+	curl --location --silent "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" --output /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
 
 docker: docker-engine docker-compose
-	curl --location --silent  https://github.com/docker/compose/releases/download/1.8.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-	chmod +x /usr/local/bin/docker-compose
 
 atom-editor:
 	if ! type atom; then \

@@ -111,9 +111,9 @@ file-management:
 dataviz:
 	apt-get --yes install gdal-bin
 
-datamining:
-	npm install --global topojson xml2json-command underscore-cli #json tools
-	apt-get --yes install jq awk jshon visual-regexp
+datamining: nodejs
+	npm install --global topojson xml2json-command #json tools
+	apt-get --yes install jq gawk jshon visual-regexp
 
 scanner:
 	curl --location --silent --output /tmp/scanner.deb https://download.tuxfamily.org/arakhne/ubuntu/pool/universe/libs/libsane-epson-perfection/libsane-epson-perfection-1670_3.0-21arakhne1_all.deb
@@ -314,6 +314,7 @@ kde-thumbnail:
 		kde-thumbnailer-deb \
 		kffmpegthumbnailer \
 		thumbnailer-service
+
 kde: kde-icons kde-thumbnail
 	apt install --yes \
 		kde-runtime \

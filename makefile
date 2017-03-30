@@ -283,7 +283,7 @@ docker: docker-engine docker-compose
 
 atom-editor:
 	if ! type atom; then \
-		curl --location --silent --output $$HOME/Downloads/atom-amd64.deb https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb \
+		curl --continue-at - --location --output $$HOME/Downloads/atom-amd64.deb https://github.com/atom/atom/releases/download/v1.15.0/atom-amd64.deb \
 		&& dpkg --install $$HOME/Downloads/atom-amd64.deb \
 	; fi
 

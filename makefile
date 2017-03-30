@@ -368,10 +368,11 @@ torrent: tribler
 
 clean:
 	apt remove \
+		hexchat \
+		libreoffice-{core,common} \
+		orca \
 		pidgin \
 		transmission \
-		orca \
-		hexchat \
 		thunderbird
 	apt autoremove
 	apt autoclean

@@ -217,6 +217,9 @@ terminal:
 		tmux \
 		yakuake
 
+terminal-extra: nodejs
+		yarn global add tldr
+
 bash:
 	echo
 

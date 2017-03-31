@@ -80,7 +80,11 @@ upgrade:
 video:
 	apt-get --yes install mplayer smplayer vlc pavucontrol
 
-graphic-editor:
+peek:
+	add-apt-repository --yes ppa:peek-developers/stable
+	apt update && apt install peek
+
+graphic-editor: peek
 	apt-get --yes install {shutter,libgoo-canvas-perl} inkscape pdfshuffler
 
 graphic-viewer:

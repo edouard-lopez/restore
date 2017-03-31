@@ -245,6 +245,7 @@ shell: bash fish zsh fish-plugins
 	apt install xrectsel
 
 shell-theme:
+	mkdir -p ~/.local/share/konsole
 	if ! -d ~/.config/base16-shell; then \
 		git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell; \
 	else \

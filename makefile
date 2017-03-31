@@ -255,7 +255,9 @@ shell-theme:
 		git clone https://github.com/chriskempson/base16-shell.git ~/projects/base16-konsole; \
 	else \
 		pushd  ~/projects/base16-konsole; git pull; \
-		cp base16-tomorrow* ~/.kde/share/app/konsole/
+		cd base16-konsole/colorscheme/
+		cp base16-tomorrow* ~/.local/share/konsole/
+		cp base16-tomorrow* ~/.kde4/apps/konsole/
 	fi
 
 

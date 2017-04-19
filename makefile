@@ -46,7 +46,7 @@ default:	\
 	linter \
 	monitoring \
 	python \
-	nodejs yarnpkg \
+	nodejs nodejs-extra npm yarnpkg \
 	utils network security \
 	shell bash fish zsh \
 	terminal \
@@ -191,11 +191,17 @@ python:
 	pip install wheel
 	pip install --upgrade pip
 
-nodejs: yarnpkg
+
+npm:
 	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 	apt-get install --yes nodejs
 	npm update --global npm
 	npm cache clean
+
+nodejs-extra:
+	yarn global add npm-check
+
+nodejs: npm yarnpkg nodejs-extra
 
 linter:
 	apt-get install shellcheck
@@ -322,7 +328,7 @@ atom-editor:
 clipboard-manager:
 	apt install clipit
 
-yarnpkg:
+yarnpkg: npm
 	apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
 	echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 	apt-get update && apt-get install yarn

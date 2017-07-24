@@ -162,24 +162,18 @@ ${SSL_KEY_PATH}.%:
 	[[ ! -d /etc/ssl/$$USER ]] && mkdir -p "/etc/ssl/$$USER" || true
 	openssl req -new -sha256 -x509 -nodes -days 365 -newkey rsa:4096 \
 		-keyout $@.key \
-		-out 	$@.crt
+		-out   $@.crt
 
 keepass:
 	apt-get --yes install keepass2 mono-dmcs libmono-system-management4.0-cil libmono-system-numerics4.0-cil
 	mkdir -p /usr/lib/keepass2/plugins/
 	ln -nfs $$HOME/.mozilla/firefox/*201*/extensions/keefox@chris.tomlinson/deps/KeePassRPC.plgx /usr/lib/keepass2/plugins/
 
-
-
 security: keepass #ssl-certificate
 	apt-get update
 	apt-get --yes install \
 		gnupg2 \
 		gnupg-agent \
-
-cfdict: apache2 nodejs ruby
-	apt-get install --yes jshon
-	cd $$HOME/.marks/cfdict-client/
 
 python:
 	apt-get install --yes \

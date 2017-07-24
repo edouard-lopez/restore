@@ -119,7 +119,7 @@ file-management:
 		kdegraphics-thumbnailers kio-extras kdemultimedia-kio-plugins \
 		ncdu \
 		tree
-	ln -s /usr/lib/x86_64-linux-gnu/plugins/* /usr/lib/x86_64-linux-gnu/qt5/plugins/  # icon bug in KDE
+	ln -nfs /usr/lib/x86_64-linux-gnu/plugins/* /usr/lib/x86_64-linux-gnu/qt5/plugins/  # icon bug in KDE
 
 dataviz:
 	apt-get --yes install gdal-bin

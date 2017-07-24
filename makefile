@@ -26,7 +26,7 @@ additionRepos:=/etc/apt/sources.list.d/additional-repositories.list
 SSL_KEY_NAME:=web
 SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 
-default:	\
+default:  \
 	atom-editor \
 	albert-launcher \
 	backup \
@@ -46,15 +46,14 @@ default:	\
 	linter \
 	monitoring \
 	python \
-	nodejs nodejs-extra npm yarnpkg \
-	utils network security \
-	shell bash fish zsh \
+	nodejs \
+	network security \
+	shell \
 	terminal \
 	xrectsel \
-	upgrade
 	wallpaper \
 	zeal-doc \
-	# cfdict
+	upgrade
 
 ssl-certificate: ${SSL_KEY_PATH}
 

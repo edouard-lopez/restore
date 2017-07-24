@@ -377,7 +377,7 @@ sync: seafile syncthing
 
 tribler:
 	if ! type tribler &> /dev/null; then \
-		curl --location --silent --output /tmp/tribler.deb https://github.com/Tribler/tribler/releases/download/v7.0.0-beta/tribler_7.0.0-beta_all.deb \
+		curl --location --silent --output /tmp/tribler.deb https://github.com/Tribler/tribler/releases/download/v7.0.0-rc2/tribler_7.0.0-rc2_all.deb \
 		&& dpkg --install /tmp/tribler.deb \
 	; fi
 

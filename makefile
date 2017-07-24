@@ -252,7 +252,12 @@ zsh:
 shell: bash fish zsh fish-plugins
 	$$HOME/projects/dotfiles/install.sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
-	apt install xrectsel
+	apt install libx11-dev dh-autoreconf
+	git clone https://github.com/lolilolicon/xrectsel.git; \
+		./bootstrap; \
+		./configure --prefix /usr; \
+		make; \
+		make install
 
 shell-theme:
 	mkdir -p ~/.local/share/konsole

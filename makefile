@@ -196,7 +196,6 @@ npm:
 	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 	apt-get install --yes nodejs
 	npm update --global npm
-	npm cache clean
 
 nodejs-extra:
 	yarn global add npm-check

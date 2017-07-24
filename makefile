@@ -50,6 +50,7 @@ default:	\
 	utils network security \
 	shell bash fish zsh \
 	terminal \
+	xrectsel \
 	upgrade
 	wallpaper \
 	zeal-doc \
@@ -245,12 +246,17 @@ zsh:
 shell: bash fish zsh fish-plugins
 	$$HOME/projects/dotfiles/install.sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
-	apt install libx11-dev dh-autoreconf
-	git clone https://github.com/lolilolicon/xrectsel.git; \
-		./bootstrap; \
-		./configure --prefix /usr; \
-		make; \
-		make install
+
+xrectsel:
+	if ! type xrectsel; then \
+		apt install libx11-dev dh-autoreconf
+		git clone https://github.com/lolilolicon/xrectsel.git; \
+			cd xrectsel; \
+			./bootstrap; \
+			./configure --prefix /usr; \
+			make; \
+			make install; \
+	fi
 
 shell-theme:
 	mkdir -p ~/.local/share/konsole

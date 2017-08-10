@@ -172,6 +172,7 @@ security: keepass #ssl-certificate
 	apt-get --yes install \
 		gnupg2 \
 		gnupg-agent \
+		kgpg
 
 python:
 	apt-get install --yes \

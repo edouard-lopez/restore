@@ -302,22 +302,21 @@ zeal-doc:
 	apt-get install zeal
 
 docker-engine:
+	apt-get remove docker docker-engine docker.io
 	if ! type docker; then \
-		apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D; \
-		echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list; \
+		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
+ 		apt-key fingerprint 0EBFCD88 \
+		add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $distroUbuntu stable" \
 		apt-get update; \
 		apt-get install --yes \
 			apt-transport-https \
 			ca-certificates \
-			docker-engine; \
-		service docker start; \
-		groupadd docker || true; \
-		usermod -aG docker $$SUDO_USER; \
+			docker-ce; \
 	fi
 
 
 docker-compose:
-	curl --location --silent "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$$(uname -s)-$$(uname -m)" --output /usr/local/bin/docker-compose
+	curl --location --silent "https://github.com/docker/compose/releases/download/1.15.0/docker-compose-$$(uname -s)-$$(uname -m)" --output /usr/local/bin/docker-compose
 	chmod +x /usr/local/bin/docker-compose
 
 docker: docker-engine docker-compose

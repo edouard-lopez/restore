@@ -165,9 +165,7 @@ ${SSL_KEY_PATH}.%:
 		-out   $@.crt
 
 keepass:
-	apt-get --yes install keepass2 mono-dmcs libmono-system-management4.0-cil libmono-system-numerics4.0-cil
-	mkdir -p /usr/lib/keepass2/plugins/
-	ln -nfs $$HOME/.mozilla/firefox/*201*/extensions/keefox@chris.tomlinson/deps/KeePassRPC.plgx /usr/lib/keepass2/plugins/
+	apt-get --yes install keepassx
 
 security: keepass #ssl-certificate
 	apt-get update

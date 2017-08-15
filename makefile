@@ -210,12 +210,19 @@ git:
 	apt-get --yes install colordiff git{,k,-gui}
 	curl --location --silent https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight
 
-terminal:
+terminal: terminal-color terminal-extra
 	apt-get --yes install \
 		curl \
 		konsole \
 		tmux \
 		yakuake
+
+terminal-color:
+	rm --force --recursive $$HOME/.kde4/apps/konsole/base16-konsole
+	cd $$HOME/.kde4/apps/konsole/; \
+		git clone --depth 1 https://github.com/cskeeters/base16-konsole.git ./base16-konsole; \
+		cp ./base16-konsole/colorscheme/* ./
+		chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
 
 terminal-extra: nodejs
 		yarn global add tldr
@@ -242,6 +249,7 @@ zsh:
 shell: bash fish zsh fish-plugins
 	$$HOME/projects/dotfiles/install.sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
+	git clone --depth 1 https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 xrectsel:
 	if ! type xrectsel; then \

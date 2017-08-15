@@ -203,9 +203,7 @@ fonts:
 		fonts-noto{,-cjk} \
 		fonts-symbola
 
-core-utils: git terminal shell firefox
-	apt-get install --yes \
-		vim
+core-utils: git terminal shell firefox vim
 
 git:
 	apt-get update
@@ -382,6 +380,14 @@ tribler:
 torrent: tribler
 	apt install --yes \
 		deluge{,d,-gtk,-torrent}
+
+vim:  # install vim8
+	add-apt-repository ppa:jonathonf/vim
+	apt-get update
+	apt install \
+		vim \
+		vim-nox  # fix https://github.com/Valloric/YouCompleteMe/issues/1907
+	vim +PluginInstall +qall  # install plugins
 
 wallpaper:
 	add-apt-repository --yes ppa:peterlevi/ppa

@@ -218,11 +218,15 @@ terminal: terminal-color terminal-extra
 		yakuake
 
 terminal-color:
-	rm --force --recursive $$HOME/.kde4/apps/konsole/base16-konsole
-	cd $$HOME/.kde4/apps/konsole/; \
-		git clone --depth 1 https://github.com/cskeeters/base16-konsole.git ./base16-konsole; \
-		cp ./base16-konsole/colorscheme/* ./
-		chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
+	mkdir -p ~/.local/share/konsole
+	rm --force --recursive ~/.config/base16-shell
+	git clone --depth 1 https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell;
+
+	rm --force --recursive ~/.kde4/apps/konsole/base16-konsole
+	git clone --depth 1 https://github.com/cskeeters/base16-konsole.git ~/.kde4/apps/konsole/base16-konsole
+	cp ~/.kde4/apps/konsole/base16-konsole/colorscheme/* ~/.local/share/konsole/
+	cp ~/.kde4/apps/konsole/base16-konsole/colorscheme/* ~/.kde4/apps/konsole/
+	chown $$SUDO_USER:$$SUDO_USER -R ~/.kde4/apps/konsole/
 
 terminal-extra: nodejs
 		yarn global add tldr
@@ -249,7 +253,6 @@ zsh:
 shell: bash fish zsh fish-plugins
 	$$HOME/projects/dotfiles/install.sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
-	git clone --depth 1 https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 xrectsel:
 	if ! type xrectsel; then \
@@ -265,12 +268,12 @@ xrectsel:
 shell-theme:
 	mkdir -p ~/.local/share/konsole
 	if ! -d ~/.config/base16-shell; then \
-		git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell; \
+		git clone --depth 1 https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell; \
 	else \
 		pushd  ~/.config/base16-shell; git pull; \
 	fi
 	if ! -d ~/projects/base16-konsole; then \
-		git clone https://github.com/chriskempson/base16-shell.git ~/projects/base16-konsole; \
+		git clone --depth 1 https://github.com/chriskempson/base16-shell.git ~/projects/base16-konsole; \
 	else \
 		pushd  ~/projects/base16-konsole; git pull; \
 		cd base16-konsole/colorscheme/

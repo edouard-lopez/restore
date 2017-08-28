@@ -345,7 +345,7 @@ yarnpkg: npm
 
 languages:
 	apt-get install --yes \
-		ibus{,-pinyin,-qt4} \
+		ibus{,-pinyin,-qt4,-gtk,-gtk3} \
 		gucharmap
 
 kde-icons:

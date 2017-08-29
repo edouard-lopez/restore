@@ -94,6 +94,13 @@ graphic-viewer:
 		djvulibre-bin \
 		pdf2djvu
 
+hardware:
+	apt-get --yes install \
+		imwheel \
+		solaar
+	curl --location --output ~/apps/imwheel-ui.sh https://goo.gl/49LhhE
+	chmod +x ~/apps/imwheel-ui.sh
+
 photo-management:
 	add-apt-repository --yes ppa:philip5/extra
 	apt-get update

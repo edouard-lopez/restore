@@ -238,7 +238,7 @@ terminal-extra: nodejs
 		yarn global add tldr && tldr --update
 
 bash:
-	echo
+	echo "skip"
 
 fish-plugins:
 	curl --location --silent https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
@@ -256,7 +256,7 @@ zsh:
 	curl --location --silent  http://install.ohmyz.sh | sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/.oh-my-zsh
 
-shell: bash fish zsh fish-plugins
+shell: bash fish fish-plugins zsh
 	$$HOME/projects/dotfiles/install.sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
 

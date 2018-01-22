@@ -374,7 +374,9 @@ kde: kde-icons kde-thumbnail
 		kdelibs5-plugins \
 
 slack: snap
-	snap install --yes slack --classic
+	if ! type slack; then \
+		snap install --yes slack --classic
+	; fi
 
 snap:
 	apt install --yes snapd

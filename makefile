@@ -340,7 +340,7 @@ docker: docker-engine docker-compose
 atom-editor:
 	if ! type atom &> /dev/null; then \
 		snap install --classic atom; \
-	; fi
+	fi
 
 clipboard-manager:
 	apt install clipit

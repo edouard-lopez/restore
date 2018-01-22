@@ -242,8 +242,10 @@ bash:
 	echo "skip"
 
 fish-plugins:
-	curl --location --silent https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
-	fish -c 'fisher install  rafaelrinaldi/pure barnybug/docker-fish-completion transfer fnm'
+	if [[ ! -d $$HOME/.config/fisherman/ ]]; then \
+		fish -c 'fisher install rafaelrinaldi/pure barnybug/docker-fish-completion transfer fnm'; \
+	fi
+	echo 'curl --location --silent  --output /tmp/tacklebox https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish'
 
 fish:
 	add-apt-repository --yes ppa:fish-shell/release-2

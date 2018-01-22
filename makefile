@@ -213,7 +213,7 @@ git:
 	apt update
 	apt install --yes \
 		colordiff \
-		pinentry-curses \
+		pinentry-gnome3 \
 		git{,k,-gui}
 	curl --location --silent https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight
 

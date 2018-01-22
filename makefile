@@ -78,7 +78,7 @@ video:
 
 peek:
 	add-apt-repository --yes ppa:peek-developers/stable
-	apt update && apt install peek
+	apt update && apt install --yes peek
 
 graphic-editor: peek
 	apt install --yes {shutter,libgoo-canvas-perl} inkscape pdfshuffler
@@ -200,7 +200,7 @@ nodejs-extra:
 nodejs: npm yarnpkg nodejs-extra
 
 linter:
-	apt install shellcheck
+	apt install --yes shellcheck
 
 fonts:
 	apt install --yes \
@@ -265,7 +265,7 @@ shell: bash fish fish-plugins zsh
 
 xrectsel:
 	if ! type xrectsel &> /dev/null; then \
-		apt install libx11-dev dh-autoreconf; \
+		apt install --yes libx11-dev dh-autoreconf; \
 		git clone https://github.com/lolilolicon/xrectsel.git; \
 			cd xrectsel; \
 			./bootstrap; \
@@ -311,12 +311,12 @@ backup: update-rsync-exclude
 albert-launcher:
 	add-apt-repository --yes ppa:nilarimogard/webupd8
 	apt update
-	apt install albert
+	apt install --yes albert
 
 zeal-doc:
 	add-apt-repository --yes ppa:zeal-developers/ppa
 	apt update
-	apt install zeal
+	apt install --yes zeal
 
 docker-engine:
 	apt remove docker docker-engine docker.io
@@ -343,12 +343,12 @@ atom-editor:
 	fi
 
 clipboard-manager:
-	apt install clipit
+	apt install --yes clipit
 
 yarnpkg: npm
 	apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
 	echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-	apt update && apt install yarn
+	apt update && apt install --yes yarn
 
 languages:
 	apt install --yes \

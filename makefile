@@ -208,7 +208,10 @@ core-utils: git terminal shell firefox vim
 
 git:
 	apt-get update
-	apt-get --yes install colordiff git{,k,-gui}
+	apt-get --yes install \
+		colordiff \
+		pinentry-curses \
+		git{,k,-gui}
 	curl --location --silent https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight
 
 terminal: terminal-color terminal-extra

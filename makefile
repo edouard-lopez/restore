@@ -27,12 +27,12 @@ SSL_KEY_NAME:=web
 SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 
 default:  \
+	core-utils \
+	\
 	atom-editor \
 	albert-launcher \
 	backup \
 	browser \
-	clean \
-	core-utils \
 	clipboard-manager \
 	docker \
 	editor-theme \
@@ -55,6 +55,7 @@ default:  \
 	wallpaper \
 	zeal-doc \
 	upgrade
+	clean
 
 ssl-certificate: ${SSL_KEY_PATH}
 

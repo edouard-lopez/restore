@@ -204,7 +204,7 @@ fonts:
 		fonts-noto{,-cjk} \
 		fonts-symbola
 
-core-utils: git terminal shell firefox vim
+core-utils: git terminal shell firefox snap vim
 
 git:
 	apt-get update
@@ -371,6 +371,9 @@ kde: kde-icons kde-thumbnail
 		kdelibs5-data \
 		kdelibs5-plugins \
 
+
+snap:
+	apt install --yes snapd
 
 syncthing:
 	curl --silent https://syncthing.net/release-key.txt | apt-key add -

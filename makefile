@@ -396,9 +396,9 @@ torrent: tribler
 		deluge{,d,-gtk,-torrent}
 
 vim:  # install vim8
-	add-apt-repository ppa:jonathonf/vim
+	add-apt-repository --yes ppa:jonathonf/vim
 	apt-get update
-	apt install \
+	apt install --yes \
 		vim \
 		vim-nox  # fix https://github.com/Valloric/YouCompleteMe/issues/1907
 	vim +PluginInstall +qall  # install plugins

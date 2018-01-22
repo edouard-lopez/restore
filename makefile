@@ -64,33 +64,33 @@ chromium:
 firefox:
 	cp config/firefox-next-ppa.pref /etc/apt/preferences.d/
 	add-apt-repository --yes ppa:mozillateam/firefox-next
-	apt-get update
+	apt update
 	apt install --yes firefox
 
 browser: chromium firefox
 
 upgrade:
-	apt-get update && apt-get --yes upgrade
+	apt update && apt --yes upgrade
 
 video:
-	apt-get --yes install mplayer smplayer vlc pavucontrol
+	apt --yes install mplayer smplayer vlc pavucontrol
 
 peek:
 	add-apt-repository --yes ppa:peek-developers/stable
 	apt update && apt install peek
 
 graphic-editor: peek
-	apt-get --yes install {shutter,libgoo-canvas-perl} inkscape pdfshuffler
+	apt --yes install {shutter,libgoo-canvas-perl} inkscape pdfshuffler
 
 graphic-viewer:
-	apt-get --yes install \
+	apt --yes install \
 		okular \
 		okular-extra-backends \
 		djvulibre-bin \
 		pdf2djvu
 
 hardware:
-	apt-get --yes install \
+	apt --yes install \
 		imwheel \
 		solaar
 	curl --location --output ~/apps/imwheel-ui.sh https://goo.gl/49LhhE
@@ -98,24 +98,24 @@ hardware:
 
 photo-management:
 	add-apt-repository --yes ppa:philip5/extra
-	apt-get update
-	apt-get install --yes \
+	apt update
+	apt install --yes \
 		digikam
 
 virtualization:
-	apt-get --yes install virtualbox-nonfree virtualbox-guest-utils
+	apt --yes install virtualbox-nonfree virtualbox-guest-utils
 
 monitoring:
-	apt-get update
-	apt-get --yes install \
+	apt update
+	apt --yes install \
 		bmon \
 		htop \
 		nethogs
 
 file-management:
-	apt-get update
+	apt update
 	add-apt-repository --yes ppa:kubuntu-ppa/backports
-	apt-get --yes install \
+	apt --yes install \
 		dolphin \
 		dolphin-plugins \
 		ffmpegthumbs \
@@ -125,11 +125,11 @@ file-management:
 	ln -nfs /usr/lib/x86_64-linux-gnu/plugins/* /usr/lib/x86_64-linux-gnu/qt5/plugins/  # icon bug in KDE
 
 dataviz:
-	apt-get --yes install gdal-bin
+	apt --yes install gdal-bin
 
 datamining: nodejs
 	npm install --global topojson xml2json-command #json tools
-	apt-get --yes install jq gawk jshon visual-regexp
+	apt --yes install jq gawk jshon visual-regexp
 
 scanner:
 	curl --location --silent --output /tmp/scanner.deb https://download.tuxfamily.org/arakhne/ubuntu/pool/universe/libs/libsane-epson-perfection/libsane-epson-perfection-1670_3.0-21arakhne1_all.deb
@@ -137,15 +137,15 @@ scanner:
 
 
 scanner-extra:
-	apt-get install --yes \
+	apt install --yes \
 		tesseract-ocr{,-fra} \
 		pdfsandwich
 
 audio-encoding:
-	apt-get --yes install {libav,opus,vorbis}-tools
+	apt --yes install {libav,opus,vorbis}-tools
 
 network:
-	apt-get --yes install \
+	apt --yes install \
 		whois \
 		python-software-properties \
 		mosh \
@@ -168,17 +168,17 @@ ${SSL_KEY_PATH}.%:
 		-out   $@.crt
 
 keepass:
-	apt-get --yes install keepassx
+	apt --yes install keepassx
 
 security: keepass #ssl-certificate
-	apt-get update
-	apt-get --yes install \
+	apt update
+	apt --yes install \
 		gnupg2 \
 		gnupg-agent \
 		kgpg
 
 python:
-	apt-get install --yes \
+	apt install --yes \
 	python3{,-dev} \
 	python3-venv \
 	python{,3}-pip \
@@ -190,7 +190,7 @@ python:
 
 npm:
 	curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-	apt-get install --yes nodejs
+	apt install --yes nodejs
 	npm update --global npm
 
 nodejs-extra:
@@ -199,25 +199,25 @@ nodejs-extra:
 nodejs: npm yarnpkg nodejs-extra
 
 linter:
-	apt-get install shellcheck
+	apt install shellcheck
 
 fonts:
-	apt-get install --yes \
+	apt install --yes \
 		fonts-noto{,-cjk} \
 		fonts-symbola
 
 core-utils: git terminal shell firefox snap vim
 
 git:
-	apt-get update
-	apt-get --yes install \
+	apt update
+	apt --yes install \
 		colordiff \
 		pinentry-curses \
 		git{,k,-gui}
 	curl --location --silent https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight
 
 terminal: terminal-color terminal-extra
-	apt-get --yes install \
+	apt --yes install \
 		curl \
 		konsole \
 		tmux \
@@ -246,13 +246,13 @@ fish-plugins:
 
 fish:
 	add-apt-repository --yes ppa:fish-shell/release-2
-	apt-get update
-	apt-get install --yes fish grc
+	apt update
+	apt install --yes fish grc
 	curl --location --silent --output  $$HOME/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/.config/fish/
 
 zsh:
-	apt-get install --yes zsh
+	apt install --yes zsh
 	curl --location --silent  http://install.ohmyz.sh | sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/.oh-my-zsh
 
@@ -294,7 +294,7 @@ update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;
 
 backup: update-rsync-exclude
-	apt-get --yes install {g,}rsync
+	apt --yes install {g,}rsync
 	update-rc.d rsync defaults
 	@backupSrc="${backupSrcRoot}"; \
 	backupDest="${backupDest}"; \
@@ -307,22 +307,22 @@ backup: update-rsync-exclude
 
 albert-launcher:
 	add-apt-repository --yes ppa:nilarimogard/webupd8
-	apt-get update
-	apt-get install albert
+	apt update
+	apt install albert
 
 zeal-doc:
 	add-apt-repository --yes ppa:zeal-developers/ppa
-	apt-get update
-	apt-get install zeal
+	apt update
+	apt install zeal
 
 docker-engine:
-	apt-get remove docker docker-engine docker.io
+	apt remove docker docker-engine docker.io
 	if ! type docker; then \
 		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
  		apt-key fingerprint 0EBFCD88 \
 		add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $distroUbuntu stable" \
-		apt-get update; \
-		apt-get install --yes \
+		apt update; \
+		apt install --yes \
 			apt-transport-https \
 			ca-certificates \
 			docker-ce; \
@@ -345,19 +345,19 @@ clipboard-manager:
 yarnpkg: npm
 	apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
 	echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-	apt-get update && apt-get install yarn
+	apt update && apt install yarn
 
 languages:
-	apt-get install --yes \
+	apt install --yes \
 		ibus{,-pinyin,-qt4,-gtk,-gtk3} \
 		gucharmap
 
 kde-icons:
 	apt install --yes \
-		breeze \
-		gtk3-engines-breeze libreoffice-style-breeze \
+#		breeze \
+#		gtk3-engines-breeze libreoffice-style-breeze \
 		libqt5libqgtk2 \
-		systemsettings \
+#		systemsettings \
 		kde-config-gtk-style \
 
 kde-thumbnail:
@@ -384,8 +384,8 @@ snap:
 syncthing:
 	curl --silent https://syncthing.net/release-key.txt | apt-key add -
 	echo "deb http://apt.syncthing.net/ syncthing release" | tee /etc/apt/sources.list.d/syncthing.list
-	apt-get update
-	apt-get install --yes syncthing
+	apt update
+	apt install --yes syncthing
 
 sync: syncthing
 
@@ -401,7 +401,7 @@ torrent: tribler
 
 vim:  # install vim8
 	add-apt-repository --yes ppa:jonathonf/vim
-	apt-get update
+	apt update
 	apt install --yes \
 		vim \
 		vim-nox  # fix https://github.com/Valloric/YouCompleteMe/issues/1907
@@ -409,8 +409,8 @@ vim:  # install vim8
 
 wallpaper:
 	add-apt-repository --yes ppa:peterlevi/ppa
-	apt-get update
-	apt-get install --yes variety
+	apt update
+	apt install --yes variety
 
 clean:
 	apt remove \

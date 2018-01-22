@@ -57,12 +57,6 @@ default:  \
 
 ssl-certificate: ${SSL_KEY_PATH}
 
-brave:
-	if ! type brave; then \
-		wget -O brave.deb https://laptop-updates.brave.com/latest/mint64;\
-		dpkg -i ./brave.deb; \
-	fi
-
 chromium:
 	apt install --yes chromium-browser
 
@@ -72,7 +66,7 @@ firefox:
 	apt-get update
 	apt install --yes firefox
 
-browser: chromium brave firefox
+browser: chromium firefox
 
 upgrade:
 	apt-get update && apt-get --yes upgrade

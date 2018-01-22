@@ -118,6 +118,7 @@ file-management:
 	apt-get --yes install \
 		dolphin \
 		dolphin-plugins \
+		ffmpegthumbs \
 		kdegraphics-thumbnailers kio-extras kdemultimedia-kio-plugins \
 		ncdu \
 		tree

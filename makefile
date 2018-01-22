@@ -49,6 +49,7 @@ default:  \
 	nodejs \
 	network security \
 	shell \
+	slack \
 	terminal \
 	xrectsel \
 	wallpaper \
@@ -371,6 +372,8 @@ kde: kde-icons kde-thumbnail
 		kdelibs5-data \
 		kdelibs5-plugins \
 
+slack: snap
+	snap install --yes slack --classic
 
 snap:
 	apt install --yes snapd

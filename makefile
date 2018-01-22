@@ -74,24 +74,24 @@ upgrade:
 	apt update && apt --yes upgrade
 
 video:
-	apt --yes install mplayer smplayer vlc pavucontrol
+	apt install --yes mplayer smplayer vlc pavucontrol
 
 peek:
 	add-apt-repository --yes ppa:peek-developers/stable
 	apt update && apt install peek
 
 graphic-editor: peek
-	apt --yes install {shutter,libgoo-canvas-perl} inkscape pdfshuffler
+	apt install --yes {shutter,libgoo-canvas-perl} inkscape pdfshuffler
 
 graphic-viewer:
-	apt --yes install \
+	apt install --yes \
 		okular \
 		okular-extra-backends \
 		djvulibre-bin \
 		pdf2djvu
 
 hardware:
-	apt --yes install \
+	apt install --yes \
 		imwheel \
 		solaar
 	curl --location --output ~/apps/imwheel-ui.sh https://goo.gl/49LhhE
@@ -104,11 +104,11 @@ photo-management:
 		digikam
 
 virtualization:
-	apt --yes install virtualbox-nonfree virtualbox-guest-utils
+	apt install --yes virtualbox-nonfree virtualbox-guest-utils
 
 monitoring:
 	apt update
-	apt --yes install \
+	apt install --yes \
 		bmon \
 		htop \
 		nethogs
@@ -116,7 +116,7 @@ monitoring:
 file-management:
 	apt update
 	add-apt-repository --yes ppa:kubuntu-ppa/backports
-	apt --yes install \
+	apt install --yes \
 		dolphin \
 		dolphin-plugins \
 		ffmpegthumbs \
@@ -126,11 +126,11 @@ file-management:
 	ln -nfs /usr/lib/x86_64-linux-gnu/plugins/* /usr/lib/x86_64-linux-gnu/qt5/plugins/  # icon bug in KDE
 
 dataviz:
-	apt --yes install gdal-bin
+	apt install --yes gdal-bin
 
 datamining: nodejs
 	npm install --global topojson xml2json-command #json tools
-	apt --yes install jq gawk jshon visual-regexp
+	apt install --yes jq gawk jshon visual-regexp
 
 scanner:
 	curl --location --silent --output /tmp/scanner.deb https://download.tuxfamily.org/arakhne/ubuntu/pool/universe/libs/libsane-epson-perfection/libsane-epson-perfection-1670_3.0-21arakhne1_all.deb
@@ -143,10 +143,10 @@ scanner-extra:
 		pdfsandwich
 
 audio-encoding:
-	apt --yes install {libav,opus,vorbis}-tools
+	apt install --yes {libav,opus,vorbis}-tools
 
 network:
-	apt --yes install \
+	apt install --yes \
 		whois \
 		python-software-properties \
 		mosh \
@@ -169,11 +169,11 @@ ${SSL_KEY_PATH}.%:
 		-out   $@.crt
 
 keepass:
-	apt --yes install keepassx
+	apt install --yes keepassx
 
 security: keepass #ssl-certificate
 	apt update
-	apt --yes install \
+	apt install --yes \
 		gnupg2 \
 		gnupg-agent \
 		kgpg
@@ -211,14 +211,14 @@ core-utils: git terminal shell firefox snap vim
 
 git:
 	apt update
-	apt --yes install \
+	apt install --yes \
 		colordiff \
 		pinentry-curses \
 		git{,k,-gui}
 	curl --location --silent https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight
 
 terminal: terminal-color terminal-extra
-	apt --yes install \
+	apt install --yes \
 		curl \
 		konsole \
 		tmux \
@@ -236,7 +236,7 @@ terminal-color:
 	chown $$SUDO_USER:$$SUDO_USER -R ~/.kde4/apps/konsole/
 
 terminal-extra: nodejs
-		yarn global add tldr && tldr --update
+		yarn global add tldr
 
 bash:
 	echo "skip"
@@ -295,7 +295,7 @@ update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;
 
 backup: update-rsync-exclude
-	apt --yes install {g,}rsync
+	apt install --yes {g,}rsync
 	update-rc.d rsync defaults
 	@backupSrc="${backupSrcRoot}"; \
 	backupDest="${backupDest}"; \

@@ -230,7 +230,7 @@ terminal-color:
 	chown $$SUDO_USER:$$SUDO_USER -R ~/.kde4/apps/konsole/
 
 terminal-extra: nodejs
-		yarn global add tldr
+		yarn global add tldr && tldr --update
 
 bash:
 	echo

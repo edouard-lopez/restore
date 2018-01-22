@@ -336,7 +336,7 @@ docker: docker-engine docker-compose
 
 atom-editor:
 	if ! type atom; then \
-		sudo snap install --classic atom
+		snap install --classic atom
 	; fi
 
 clipboard-manager:

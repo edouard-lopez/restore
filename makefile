@@ -264,7 +264,7 @@ shell: bash fish fish-plugins zsh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
 
 xrectsel:
-	if ! type xrectsel; then \
+	if ! type xrectsel &> /dev/null; then \
 		apt install libx11-dev dh-autoreconf; \
 		git clone https://github.com/lolilolicon/xrectsel.git; \
 			cd xrectsel; \
@@ -320,7 +320,7 @@ zeal-doc:
 
 docker-engine:
 	apt remove docker docker-engine docker.io
-	if ! type docker; then \
+	if ! type docker &> /dev/null; then \
 		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
  		apt-key fingerprint 0EBFCD88 \
 		add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $distroUbuntu stable" \
@@ -338,7 +338,7 @@ docker-compose: python
 docker: docker-engine docker-compose
 
 atom-editor:
-	if ! type atom; then \
+	if ! type atom &> /dev/null; then \
 		snap install --classic atom; \
 	; fi
 
@@ -377,7 +377,7 @@ kde: kde-icons kde-thumbnail
 		kdelibs5-plugins \
 
 slack: snap
-	if ! type slack; then \
+	if ! type slack &> /dev/null; then \
 		snap install slack --classic; \
 	; fi
 

@@ -262,7 +262,7 @@ shell: bash fish fish-plugins zsh
 
 xrectsel:
 	if ! type xrectsel; then \
-		apt install libx11-dev dh-autoreconf
+		apt install libx11-dev dh-autoreconf; \
 		git clone https://github.com/lolilolicon/xrectsel.git; \
 			cd xrectsel; \
 			./bootstrap; \
@@ -336,7 +336,7 @@ docker: docker-engine docker-compose
 
 atom-editor:
 	if ! type atom; then \
-		snap install --classic atom
+		snap install --classic atom; \
 	; fi
 
 clipboard-manager:
@@ -375,7 +375,7 @@ kde: kde-icons kde-thumbnail
 
 slack: snap
 	if ! type slack; then \
-		snap install --yes slack --classic
+		snap install slack --classic; \
 	; fi
 
 snap:

@@ -192,7 +192,7 @@ npm:
 	npm update --global npm
 
 nodejs-extra:
-	yarn global add npm-check
+	echo "skip"
 
 nodejs: npm yarnpkg nodejs-extra
 

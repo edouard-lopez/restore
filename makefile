@@ -372,10 +372,6 @@ kde: kde-icons kde-thumbnail
 		kdelibs5-data \
 		kdelibs5-plugins \
 
-seafile:
-	add-apt-repository --yes ppa:seafile/seafile-client
-	apt-get update
-	apt-get install --yes seafile-gui
 
 syncthing:
 	curl --silent https://syncthing.net/release-key.txt | apt-key add -
@@ -383,7 +379,7 @@ syncthing:
 	apt-get update
 	apt-get install --yes syncthing
 
-sync: seafile syncthing
+sync: syncthing
 
 tribler:
 	if ! type tribler &> /dev/null; then \

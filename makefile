@@ -214,8 +214,11 @@ git:
 	apt install --yes \
 		colordiff \
 		pinentry-gnome3 \
-		git{,k,-gui}
-	curl --location --silent https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight > "$$HOME"/apps/diff-highlight
+		git{,k,-gui}; \
+	curl --location --silent https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy \
+        > "$$HOME"/apps/diff-highlight \
+        && chown $$SUDO_USER:$$SUDO_USER "$$HOME"/apps/diff-highlight \
+        && chmod u+x "$$HOME"/apps/diff-highlight
 
 terminal: terminal-color terminal-extra
 	apt install --yes \

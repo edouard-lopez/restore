@@ -357,11 +357,11 @@ languages:
 
 kde-icons:
 	apt install --yes \
+		libqt5libqgtk2 \
+		kde-config-gtk-style
 #		breeze \
 #		gtk3-engines-breeze libreoffice-style-breeze \
-		libqt5libqgtk2 \
 #		systemsettings \
-		kde-config-gtk-style \
 
 kde-thumbnail:
 	apt install --yes \

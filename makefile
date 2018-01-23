@@ -54,7 +54,7 @@ default:  \
 	xrectsel \
 	wallpaper \
 	zeal-doc \
-	upgrade
+	upgrade \
 	clean
 
 ssl-certificate: ${SSL_KEY_PATH}
@@ -379,7 +379,7 @@ kde: kde-icons kde-thumbnail
 slack: snap
 	if ! type slack &> /dev/null; then \
 		snap install slack --classic; \
-	; fi
+	fi
 
 snap:
 	apt install --yes snapd

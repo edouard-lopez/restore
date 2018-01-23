@@ -71,7 +71,7 @@ firefox:
 browser: chromium firefox
 
 upgrade:
-	apt update && apt --yes upgrade
+	apt update && apt upgrade --yes 
 
 video:
 	apt install --yes mplayer smplayer vlc pavucontrol
@@ -319,7 +319,7 @@ zeal-doc:
 	apt install --yes zeal
 
 docker-engine:
-	apt remove docker docker-engine docker.io
+	apt remove --yes docker docker-engine docker.io
 	if ! type docker &> /dev/null; then \
 		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -; \
 		apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7EA0A9C3F273FCD8; \
@@ -416,12 +416,12 @@ wallpaper:
 	apt install --yes variety
 
 clean:
-	apt remove \
+	apt remove --yes \
 		hexchat \
 		libreoffice-{core,common} \
 		orca \
 		pidgin \
 		transmission \
 		thunderbird
-	apt autoremove
+	apt autoremove --yes
 	apt autoclean

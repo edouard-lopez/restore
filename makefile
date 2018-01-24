@@ -41,6 +41,7 @@ default:  \
 	graphic-editor \
 	graphic-viewer \
 	photo-management \
+	icons \
 	kde \
 	languages \
 	linter \
@@ -89,6 +90,16 @@ graphic-viewer:
 		okular-extra-backends \
 		djvulibre-bin \
 		pdf2djvu
+
+icons:
+	add-apt-repository --yes ppa:papirus/papirus
+	add-apt-repository --yes ppa:andreas-angerer89/sni-qt-patched
+	apt update
+	apt install --yes \
+		papirus-icon-theme \
+		sni-qt{,:i386} \
+		hardcode-tray
+	hardcode-tray --conversion-tool RSVGConvert --size 22 --theme Papirus --apply
 
 hardware:
 	apt install --yes \

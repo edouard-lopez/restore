@@ -75,7 +75,12 @@ upgrade:
 	apt update && apt upgrade --yes 
 
 video:
-	apt install --yes mplayer smplayer vlc pavucontrol
+	add-apt-repository --yes ppa:rvm/smplayer 
+	apt update 
+	apt install --yes \
+		mplayer \
+		smplayer{,-themes,-skins} \
+		pavucontrol
 
 peek:
 	add-apt-repository --yes ppa:peek-developers/stable

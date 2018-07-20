@@ -430,6 +430,11 @@ vim:  # install vim8
 	apt install --yes \
 		vim \
 		vim-nox  # fix https://github.com/Valloric/YouCompleteMe/issues/1907
+	if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then \
+		git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim; \
+	else \
+		pushd  ~/.vim/bundle/Vundle.vim; git pull; \
+	fi
 	vim +PluginInstall +qall  # install plugins
 
 wallpaper:

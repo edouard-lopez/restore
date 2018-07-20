@@ -87,7 +87,10 @@ peek:
 	apt update && apt install --yes peek
 
 graphic-editor: peek
-	apt install --yes {shutter,libgoo-canvas-perl} inkscape pdfshuffler
+	apt install --yes \
+        shutter \
+        inkscape \
+        pdfshuffler
 
 graphic-viewer:
 	apt install --yes \

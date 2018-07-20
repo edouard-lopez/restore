@@ -174,8 +174,8 @@ editor-theme: terminal
 	if [[ ! -d ${projectsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${projectsDir}/tomorrow-theme; fi
 	ln -nfs ${projectsDir}/tomorrow-theme/vim/colors/*.vim $$HOME/.vim/colors/
 	if [[ ! -d ${projectsDir}/tomorrow-theme-konsole ]]; then git clone --depth 1 https://github.com/dram/konsole-tomorrow-theme.git ${projectsDir}/tomorrow-theme-konsole; fi
-	ln -nfs ${projectsDir}/tomorrow-theme-konsole/*.colorscheme ${settingsDir}/.local/share/konsole/
-	ln  -nfs $$HOME/dotfiles/.oh-my-zsh/themes/* $$HOME/.oh-my-zsh/themes/
+	ln -nfs ${projectsDir}/tomorrow-theme-konsole/*.colorscheme $$HOME/.local/share/konsole/
+	ln -nfs $$HOME/dotfiles/.oh-my-zsh/themes/* $$HOME/.oh-my-zsh/themes/
 
 #@alias: ssl-certificate
 # ${SSL_KEY_PATH}.%:

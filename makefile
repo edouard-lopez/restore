@@ -331,7 +331,7 @@ backup: update-rsync-exclude
 albert-launcher:
 	wget --no-verbose --output-document=/tmp/Release.key https://build.opensuse.org/projects/home:manuelschneid3r/public_key
 	apt-key add - < /tmp/Release.key
-	echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/albert.list
+	echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_18.04/ /' > /etc/apt/sources.list.d/albert.list
 	apt update
 	apt install --yes albert
 

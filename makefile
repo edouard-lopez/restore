@@ -336,7 +336,6 @@ albert-launcher:
 	apt install --yes albert
 
 zeal-doc:
-	add-apt-repository --yes ppa:zeal-developers/ppa
 	apt update
 	apt install --yes zeal
 

@@ -72,11 +72,11 @@ firefox:
 browser: chromium firefox
 
 upgrade:
-	apt update && apt upgrade --yes 
+	apt update && apt upgrade --yes
 
 video:
-	add-apt-repository --yes ppa:rvm/smplayer 
-	apt update 
+	add-apt-repository --yes ppa:rvm/smplayer
+	apt update
 	apt install --yes \
 		mplayer \
 		smplayer{,-themes,-skins} \
@@ -395,7 +395,7 @@ kde: kde-icons kde-thumbnail
 		kde-runtime \
 		kdelibs-bin \
 		kdelibs5-data \
-		kdelibs5-plugins \
+		kdelibs5-plugins
 
 slack: snap
 	if ! type slack &> /dev/null; then \

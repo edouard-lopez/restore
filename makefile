@@ -19,7 +19,7 @@ settingsDir:=/data/settings
 projectsDir:=/data/projects
 backupSrcRoot:=/data
 backupDest:=/media/ed8/ed-big5/data-backup
-distroUbuntu:=xenial
+distroUbuntu:=bionic
 additionRepos:=/etc/apt/sources.list.d/additional-repositories.list
 
 # for SSL certificates

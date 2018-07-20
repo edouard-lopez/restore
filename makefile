@@ -387,8 +387,7 @@ kde-icons:
 kde-thumbnail:
 	apt install --yes \
 		kde-thumbnailer-deb \
-		kffmpegthumbnailer \
-		thumbnailer-service
+		kffmpegthumbnailer 
 
 kde: kde-icons kde-thumbnail
 	apt install --yes \

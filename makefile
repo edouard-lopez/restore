@@ -117,8 +117,6 @@ hardware:
 	chmod +x ~/apps/imwheel-ui.sh
 
 photo-management:
-	add-apt-repository --yes ppa:philip5/extra
-	apt update
 	apt install --yes \
 		digikam
 

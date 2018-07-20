@@ -259,7 +259,11 @@ terminal-extra: nodejs
 		yarn global add tldr
 
 bash:
-	echo "skip"
+	apt install libreadline7
+	cd /lib/x86_64-linux-gnu && ln -nfs libreadline.so.7.0 libreadline.so.6
+	add-apt-repository --yes ppa:ultradvorka/ppa
+	apt update
+	apt install --yes hh
 
 fish-plugins:
 	if [[ ! -d $$HOME/.config/fisherman/ ]]; then \

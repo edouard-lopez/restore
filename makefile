@@ -269,7 +269,13 @@ fish-plugins:
 	if [[ ! -d $$HOME/.config/fisherman/ ]]; then \
 		fish -c 'fisher install rafaelrinaldi/pure barnybug/docker-fish-completion transfer fnm'; \
 	fi
-	echo 'curl --location --silent  --output /tmp/tacklebox https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish'
+	curl \
+		--location \
+		--silent \
+		--output \
+		/tmp/tacklebox https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish
+	fish /tmp/tacklebox &
+	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/tacklebox/
 
 fish:
 	add-apt-repository --yes ppa:fish-shell/release-2

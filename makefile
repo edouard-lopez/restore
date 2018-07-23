@@ -333,7 +333,7 @@ backup: update-rsync-exclude
 	update-rc.d rsync defaults
 	@backupSrc="${backupSrcRoot}"; \
 	backupDest="${backupDest}"; \
-	backupList=( "paperwork" "Pictures" "projects" "settings" ); \
+	backupList=( "paperwork" "Pictures" "projects"); \
 	for backupDir in $${backupList[@]}; do \
 		(crontab -u ${user} -l ; \
 			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest} --log-file \"$$HOME/rsync.log\" --exclude-from=\"$$HOME/.exclude.rsync\" "; \

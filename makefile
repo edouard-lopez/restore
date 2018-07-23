@@ -204,8 +204,10 @@ python:
 	python{,3}-pip \
 	python{,3}-setuptools \
 	ipython
-	pip install wheel
-	pip install --upgrade pip
+	pip3 install \
+		wheel \
+		virtualenv 
+	pip3 install --upgrade pip
 
 
 npm:

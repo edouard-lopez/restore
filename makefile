@@ -369,7 +369,8 @@ docker-engine:
 	usermod -aG docker $$SUDO_USER
 
 docker-compose: python
-	sudo pip install docker-compose
+	curl --location https://github.com/docker/compose/releases/download/1.18.0/docker-compose-$$(uname -s)-$$(uname -m) -o /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
 
 docker: docker-engine docker-compose
 

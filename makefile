@@ -352,7 +352,10 @@ zeal-doc:
 	apt install --yes zeal
 
 docker-engine:
-	apt remove --yes docker docker-engine docker.io
+	apt remove --yes \
+		docker \
+		docker-engine \
+		docker.io
 	if ! type docker &> /dev/null; then \
 		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -; \
 		apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7EA0A9C3F273FCD8; \
@@ -363,7 +366,7 @@ docker-engine:
 			ca-certificates \
 			docker-ce; \
 	fi
-
+	usermod -aG docker $$SUDO_USER
 
 docker-compose: python
 	sudo pip install docker-compose

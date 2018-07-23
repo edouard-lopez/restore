@@ -246,7 +246,7 @@ terminal: terminal-color terminal-extra
 		curl \
 		konsole \
 		tmux \
-		yakuake
+		yakuake libkf5globalaccel-bin
 
 terminal-color:
 	mkdir -p ~/.local/share/konsole

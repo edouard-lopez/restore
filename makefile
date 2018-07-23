@@ -153,7 +153,8 @@ datamining: nodejs
 scanner:
 	curl --location --silent --output /tmp/scanner.deb https://download.tuxfamily.org/arakhne/ubuntu/pool/universe/libs/libsane-epson-perfection/libsane-epson-perfection-1670_3.0-21arakhne1_all.deb
 	dpkg -i /tmp/scanner.deb
-
+	apt install --yes \
+		gscan2pdf
 
 scanner-extra:
 	apt install --yes \

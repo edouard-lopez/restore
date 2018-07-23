@@ -134,6 +134,7 @@ file-management:
 	apt update
 	add-apt-repository --yes ppa:kubuntu-ppa/backports
 	apt install --yes \
+		ark \
 		dolphin \
 		dolphin-plugins \
 		ffmpegthumbs \

@@ -50,6 +50,7 @@ default:  \
 	nodejs \
 	network security \
 	shell \
+	shell-utils \
 	slack \
 	terminal \
 	xrectsel \
@@ -296,6 +297,11 @@ zsh:
 shell: bash fish fish-plugins zsh
 	$$HOME/projects/dotfiles/install.sh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
+
+shell-utils:
+	apt install \
+		fd-find \
+		httpie
 
 xrectsel:
 	if ! type xrectsel &> /dev/null; then \

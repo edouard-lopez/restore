@@ -244,6 +244,7 @@ terminal: terminal-color terminal-extra
 	apt install --yes \
 		curl \
 		tmux \
+		guake \
 
 terminal-color:
 	rm --force --recursive ~/.config/base16-shell

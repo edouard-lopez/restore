@@ -245,6 +245,7 @@ terminal: terminal-color terminal-extra
 		curl \
 		tmux \
 		guake \
+		pip3 install thefuck
 
 terminal-color:
 	rm --force --recursive ~/.config/base16-shell

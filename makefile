@@ -176,8 +176,6 @@ network:
 editor-theme: terminal
 	if [[ ! -d ${projectsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${projectsDir}/tomorrow-theme; fi
 	ln -nfs ${projectsDir}/tomorrow-theme/vim/colors/*.vim $$HOME/.vim/colors/
-	if [[ ! -d ${projectsDir}/tomorrow-theme-konsole ]]; then git clone --depth 1 https://github.com/dram/konsole-tomorrow-theme.git ${projectsDir}/tomorrow-theme-konsole; fi
-	ln -nfs ${projectsDir}/tomorrow-theme-konsole/*.colorscheme $$HOME/.local/share/konsole/
 	ln -nfs $$HOME/dotfiles/.oh-my-zsh/themes/* $$HOME/.oh-my-zsh/themes/
 
 #@alias: ssl-certificate
@@ -245,20 +243,11 @@ git:
 terminal: terminal-color terminal-extra
 	apt install --yes \
 		curl \
-		konsole \
 		tmux \
-		yakuake libkf5globalaccel-bin
 
 terminal-color:
-	mkdir -p ~/.local/share/konsole
 	rm --force --recursive ~/.config/base16-shell
 	git clone --depth 1 https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell;
-
-	rm --force --recursive ~/.kde4/apps/konsole/base16-konsole
-	git clone --depth 1 https://github.com/cskeeters/base16-konsole.git ~/.kde4/apps/konsole/base16-konsole
-	cp ~/.kde4/apps/konsole/base16-konsole/colorscheme/* ~/.local/share/konsole/
-	cp ~/.kde4/apps/konsole/base16-konsole/colorscheme/* ~/.kde4/apps/konsole/
-	chown $$SUDO_USER:$$SUDO_USER -R ~/.kde4/apps/konsole/
 
 terminal-extra: nodejs
 		yarn global add tldr
@@ -313,25 +302,6 @@ xrectsel:
 			make; \
 			make install; \
 	fi
-
-shell-theme:
-	mkdir -p ~/.local/share/konsole
-	if [[ ! -d ~/.config/base16-shell ]]; then \
-		git clone --depth 1 https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell; \
-	else \
-		pushd  ~/.config/base16-shell; git pull; \
-	fi
-	if [[ ! -d ~/projects/base16-konsole ]]; then \
-		git clone --depth 1 https://github.com/chriskempson/base16-shell.git ~/projects/base16-konsole; \
-	else \
-		pushd  ~/projects/base16-konsole; git pull; \
-		cd base16-konsole/colorscheme/; \
-		cp base16-tomorrow* ~/.local/share/konsole/; \
-		cp base16-tomorrow* ~/.kde4/apps/konsole/; \
-	fi
-
-
-theme: shell-theme
 
 update-rsync-exclude:
 	cp {.,"$$HOME"}/.exclude.rsync;

@@ -293,6 +293,8 @@ shell-utils:
 	apt install \
 		fd-find \
 		httpie
+	browse https://github.com/sharkdp/fd/releases
+	browse https://github.com/sharkdp/bat/releases
 
 xrectsel:
 	if ! type xrectsel &> /dev/null; then \

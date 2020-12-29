@@ -278,7 +278,6 @@ fish-plugins:
 	curl \
 		--location \
 	https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
-	pip3 install thefuck
 
 fish:
 	sudo add-apt-repository --yes ppa:fish-shell/release-3

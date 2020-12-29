@@ -105,11 +105,9 @@ graphic-viewer:
 
 icons:
 	sudo add-apt-repository --yes ppa:papirus/papirus
-#	sudo add-apt-repository --yes ppa:andreas-angerer89/sni-qt-patched
 	apt update
 	apt install --yes \
 		papirus-icon-theme \
-#		sni-qt{,:i386} \
 		hardcode-tray
 	hardcode-tray --conversion-tool RSVGConvert --size 22 --theme Papirus --apply
 

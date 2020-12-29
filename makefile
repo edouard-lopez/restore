@@ -34,6 +34,7 @@ default:  \
 	docker \
 	editor /
 	editor-theme \
+	fish-plugins \
 	file-management \
 	fonts \
 	graphic-editor \
@@ -271,20 +272,28 @@ terminal-extra: nodejs
 bash:
 	echo
 
-fish-plugins:
-	if [[ ! -d $$HOME/.config/fisherman/ ]]; then \
-		fish -c 'fisher add rafaelrinaldi/pure barnybug/docker-fish-completion transfer fnm'; \
-	fi
-	curl \
-		--location \
-	https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
-
 fish:
 	sudo add-apt-repository --yes ppa:fish-shell/release-3
 	apt update
-	apt install --yes fish grc
-	curl --location --silent --output  $$HOME/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+	apt install --yes \
+		fish \
+		grc
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/.config/fish/
+
+fish-plugins: 
+	fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
+	fish -c 'fisher install \
+		jorgebucaran/fishtape \
+		barnybug/docker-fish-completion \
+		decors/fish-colored-man \
+		jorgebucaran/fisher \
+		jorgebucaran/autopair.fish \
+		rafaelrinaldi/pure \
+		jorgebucaran/nvm.fish \
+		'
+	curl \
+		--location \
+	https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
 
 zsh:
 	apt install --yes zsh

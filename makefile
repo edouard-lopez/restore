@@ -339,7 +339,7 @@ docker-engine:
 	if ! type docker &> /dev/null; then \
 		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -; \
 		apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7EA0A9C3F273FCD8; \
-		add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${distroUbuntu} stable"; \
+		sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${distroUbuntu} stable"; \
 		apt update; \
 		apt install --yes \
 			apt-transport-https \

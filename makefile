@@ -386,13 +386,7 @@ slack:
 		snap install slack --classic; \
 	fi
 
-syncthing:
-	curl --silent https://syncthing.net/release-key.txt | apt-key add -
-	echo "deb http://apt.syncthing.net/ syncthing release" | tee /etc/apt/sources.list.d/syncthing.list
-	apt update
-	apt install --yes syncthing
-
-sync: syncthing
+sync: #syncthing
 
 tribler:
 	if ! type tribler &> /dev/null; then \

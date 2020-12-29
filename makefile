@@ -28,7 +28,6 @@ SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 
 default:  \
 	core-utils \
-	albert-launcher \
 	backup \
 	browser \
 	clipboard-manager \
@@ -42,6 +41,7 @@ default:  \
 	photo-management \
 	icons \
 	kde \
+	launcher \
 	languages \
 	linter \
 	monitoring \
@@ -113,6 +113,11 @@ icons:
 		hardcode-tray
 	hardcode-tray --conversion-tool RSVGConvert --size 22 --theme Papirus --apply
 
+launcher:
+	sudo add-apt-repository --yes ppa:agornostal/ulauncher
+	apt update
+	apt install --yes ulauncher
+
 hardware:
 	apt install --yes \
 		imwheel \
@@ -181,6 +186,7 @@ editor:
 	echo 'deb [signed-by=/etc/apt/trusted.gpg.d/vscodium-archive-keyring.gpg] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main' | sudo tee /etc/apt/sources.list.d/vscodium.list
 	apt update
 	apt install codium
+
 editor-theme: terminal
 	if [[ ! -d ${projectsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${projectsDir}/tomorrow-theme; fi
 	ln -nfs ${projectsDir}/tomorrow-theme/vim/colors/*.vim $$HOME/.vim/colors/
@@ -329,13 +335,6 @@ backup: update-rsync-exclude
 			echo "@daily rsync -r -t -p -o -g -v --progress --size-only -l -H --numeric-ids -s $${backupSrc}/$${backupDir} $${backupDest} --log-file \"$$HOME/rsync.log\" --exclude-from=\"$$HOME/.exclude.rsync\" "; \
 		) | crontab -u ${user} - ; \
 	done
-
-albert-launcher:
-	wget --no-verbose --output-document=/tmp/Release.key https://build.opensuse.org/projects/home:manuelschneid3r/public_key
-	apt-key add - < /tmp/Release.key
-	echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_18.04/ /' > /etc/apt/sources.list.d/albert.list
-	apt update
-	apt install --yes albert
 
 zeal-doc:
 	apt update

@@ -224,7 +224,7 @@ python:
 
 
 npm:
-	curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+	curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 	apt install --yes nodejs
 	npm update --global npm
 

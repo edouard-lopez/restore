@@ -28,13 +28,12 @@ SSL_KEY_PATH:=/etc/ssl/$$USER/${SSL_KEY_NAME}
 
 default:  \
 	core-utils \
-	\
-	atom-editor \
 	albert-launcher \
 	backup \
 	browser \
 	clipboard-manager \
 	docker \
+	editor /
 	editor-theme \
 	file-management \
 	fonts \
@@ -177,6 +176,11 @@ network:
 		nmap \
 		traceroute
 
+editor: 
+	wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor | sudo dd of=/etc/apt/trusted.gpg.d/vscodium-archive-keyring.gpg
+	echo 'deb [signed-by=/etc/apt/trusted.gpg.d/vscodium-archive-keyring.gpg] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main' | sudo tee /etc/apt/sources.list.d/vscodium.list
+	apt update
+	apt install codium
 editor-theme: terminal
 	if [[ ! -d ${projectsDir}/tomorrow-theme ]]; then git clone --depth 1 https://github.com/chriskempson/tomorrow-theme.git ${projectsDir}/tomorrow-theme; fi
 	ln -nfs ${projectsDir}/tomorrow-theme/vim/colors/*.vim $$HOME/.vim/colors/
@@ -359,11 +363,6 @@ docker-compose: python
 	chmod +x /usr/local/bin/docker-compose
 
 docker: docker-engine docker-compose
-
-atom-editor:
-	if ! type atom &> /dev/null; then \
-		snap install --classic atom; \
-	fi
 
 clipboard-manager:
 	apt install --yes clipit

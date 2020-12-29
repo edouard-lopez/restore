@@ -368,9 +368,7 @@ clipboard-manager:
 	apt install --yes clipit
 
 yarnpkg: npm
-	apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
-	echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-	apt update && apt install --yes yarn
+	npm install -g yarn
 
 languages:
 	apt install --yes \

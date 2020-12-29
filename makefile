@@ -258,8 +258,7 @@ terminal: terminal-color terminal-extra
 	apt install --yes \
 		curl \
 		tmux \
-		guake \
-		pip3 install thefuck
+		guake
 
 terminal-color:
 	rm --force --recursive ~/.config/base16-shell

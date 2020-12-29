@@ -268,23 +268,16 @@ terminal-extra: nodejs
 		yarn global add tldr
 
 bash:
-	apt install libreadline7
-	cd /lib/x86_64-linux-gnu && ln -nfs libreadline.so.7.0 libreadline.so.6
-	add-apt-repository --yes ppa:ultradvorka/ppa
-	apt update
-	apt install --yes hh
+	echo
 
 fish-plugins:
 	if [[ ! -d $$HOME/.config/fisherman/ ]]; then \
-		fish -c 'fisher install rafaelrinaldi/pure barnybug/docker-fish-completion transfer fnm'; \
+		fish -c 'fisher add rafaelrinaldi/pure barnybug/docker-fish-completion transfer fnm'; \
 	fi
 	curl \
 		--location \
-		--silent \
-		--output \
-		/tmp/tacklebox https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish
-	fish /tmp/tacklebox &
-	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/tacklebox/
+	https://raw.githubusercontent.com/justinmayer/tacklebox/master/tools/install.fish | fish
+	pip3 install thefuck
 
 fish:
 	sudo add-apt-repository --yes ppa:fish-shell/release-3

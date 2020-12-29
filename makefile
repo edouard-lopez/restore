@@ -124,6 +124,7 @@ hardware-mouse:
 	chmod +x ~/apps/imwheel-ui.sh
 
 hardware: hardware-mouse
+	apt install powertop
 
 photo-management:
 	apt install --yes \

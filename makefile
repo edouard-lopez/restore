@@ -69,7 +69,7 @@ brave:
 
 firefox:
 	cp config/firefox-next-ppa.pref /etc/apt/preferences.d/
-	add-apt-repository --yes ppa:mozillateam/firefox-next
+	sudo add-apt-repository --yes ppa:mozillateam/firefox-next
 	apt update
 	apt install --yes firefox
 
@@ -79,7 +79,7 @@ upgrade:
 	apt update && apt upgrade --yes
 
 video:
-	add-apt-repository --yes ppa:rvm/smplayer
+	sudo add-apt-repository --yes ppa:rvm/smplayer
 	apt update
 	apt install --yes \
 		mplayer \
@@ -87,7 +87,7 @@ video:
 		pavucontrol
 
 peek:
-	add-apt-repository --yes ppa:peek-developers/stable
+	sudo add-apt-repository --yes ppa:peek-developers/stable
 	apt update && apt install --yes peek
 
 graphic-editor: peek
@@ -104,12 +104,12 @@ graphic-viewer:
 		pdf2djvu
 
 icons:
-	add-apt-repository --yes ppa:papirus/papirus
-	add-apt-repository --yes ppa:andreas-angerer89/sni-qt-patched
+	sudo add-apt-repository --yes ppa:papirus/papirus
+#	sudo add-apt-repository --yes ppa:andreas-angerer89/sni-qt-patched
 	apt update
 	apt install --yes \
 		papirus-icon-theme \
-		sni-qt{,:i386} \
+#		sni-qt{,:i386} \
 		hardcode-tray
 	hardcode-tray --conversion-tool RSVGConvert --size 22 --theme Papirus --apply
 
@@ -136,7 +136,7 @@ monitoring:
 
 file-management:
 	apt update
-	add-apt-repository --yes ppa:kubuntu-ppa/backports
+	sudo add-apt-repository --yes ppa:kubuntu-ppa/backports
 	apt install --yes \
 		ark \
 		dolphin \
@@ -282,7 +282,7 @@ fish-plugins:
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/tacklebox/
 
 fish:
-	add-apt-repository --yes ppa:fish-shell/release-2
+	sudo add-apt-repository --yes ppa:fish-shell/release-3
 	apt update
 	apt install --yes fish grc
 	curl --location --silent --output  $$HOME/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
@@ -417,7 +417,7 @@ torrent: tribler
 		deluge{,d,-gtk,-torrent}
 
 vim:  # install vim8
-	add-apt-repository --yes ppa:jonathonf/vim
+	sudo add-apt-repository --yes ppa:jonathonf/vim
 	apt update
 	apt install --yes \
 		vim \
@@ -430,7 +430,7 @@ vim:  # install vim8
 	vim +PluginInstall +qall  # install plugins
 
 wallpaper:
-	add-apt-repository --yes ppa:peterlevi/ppa
+	sudo add-apt-repository --yes ppa:peterlevi/ppa
 	apt update
 	apt install --yes variety
 

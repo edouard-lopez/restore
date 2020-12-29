@@ -116,12 +116,14 @@ launcher:
 	apt update
 	apt install --yes ulauncher
 
-hardware:
+hardware-mouse:
 	apt install --yes \
 		imwheel \
 		solaar
 	curl --location --output ~/apps/imwheel-ui.sh https://goo.gl/49LhhE
 	chmod +x ~/apps/imwheel-ui.sh
+
+hardware: hardware-mouse
 
 photo-management:
 	apt install --yes \

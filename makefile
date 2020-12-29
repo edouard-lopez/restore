@@ -401,8 +401,6 @@ tribler:
 	; fi
 
 torrent: tribler
-	apt install --yes \
-		deluge{,d,-gtk,-torrent}
 
 vim:  # install vim8
 	sudo add-apt-repository --yes ppa:jonathonf/vim

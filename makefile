@@ -390,13 +390,10 @@ kde: kde-icons kde-thumbnail
 		kdelibs5-data \
 		kdelibs5-plugins
 
-slack: snap
+slack:
 	if ! type slack &> /dev/null; then \
 		snap install slack --classic; \
 	fi
-
-snap:
-	apt install --yes snapd
 
 syncthing:
 	curl --silent https://syncthing.net/release-key.txt | apt-key add -

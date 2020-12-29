@@ -296,11 +296,10 @@ shell: bash fish fish-plugins zsh
 	chown $$SUDO_USER:$$SUDO_USER -R $$HOME/
 
 shell-utils:
-	apt install \
+	apt install --yes \
+		bat \
 		fd-find \
 		httpie
-	browse https://github.com/sharkdp/fd/releases
-	browse https://github.com/sharkdp/bat/releases
 
 xrectsel:
 	if ! type xrectsel &> /dev/null; then \

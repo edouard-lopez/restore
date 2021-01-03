@@ -219,7 +219,8 @@ python:
 	python{,3}-setuptools 
 	python -m pip install \
 		wheel \
-		virtualenv 
+		virtualenv \
+		rich
 	python -m pip install --upgrade pip
 
 

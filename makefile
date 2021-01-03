@@ -216,13 +216,11 @@ python:
 	apt install --yes \
 	python3{,-dev} \
 	python3-venv \
-	python{,3}-pip \
-	python{,3}-setuptools \
-	ipython
-	pip3 install \
+	python{,3}-setuptools 
+	python -m pip install \
 		wheel \
 		virtualenv 
-	pip3 install --upgrade pip
+	python -m pip install --upgrade pip
 
 
 npm:
